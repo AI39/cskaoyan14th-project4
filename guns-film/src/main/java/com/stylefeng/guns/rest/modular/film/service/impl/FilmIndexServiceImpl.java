@@ -17,9 +17,9 @@ import java.util.List;
 @Component
 public class FilmIndexServiceImpl implements FilmIndexService {
     @Autowired
-    BannerMapper bannerMapper;
+    private BannerMapper bannerMapper;
     @Autowired
-    FilmMapper filmMapper;
+    private FilmMapper filmMapper;
 
     @Override
     public FilmIndexVO selectFilmIndexData() {
