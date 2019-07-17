@@ -30,7 +30,7 @@ spring:
   application: # 配置dubbo和zookeeper
     name: meeting-gateway
   dubbo:
-    server: true
+#    server: true
     registry: zookeeper://localhost:2181
   datasource: # 配置数据源
       url: jdbc:mysql://127.0.0.1:3306/guns_rest?autoReconnect=true&useUnicode=true&characterEncoding=utf8
@@ -43,3 +43,10 @@ logging:
   level.com.stylefeng: debug
   path: logs/
   file: guns-rest.log
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params:
+  #params不配置会用默认的

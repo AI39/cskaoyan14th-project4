@@ -1,6 +1,8 @@
 package com.stylefeng.guns.rest.modular.cinema.vo;
 
-public class ErrorVo {
+import java.io.Serializable;
+
+public class ErrorVo implements Serializable {
     private String status;    //异常状态码
     private String msg;       //异常信息
 
