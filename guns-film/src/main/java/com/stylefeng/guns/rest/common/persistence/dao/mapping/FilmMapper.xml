@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.rest.common.persistence.dao.FilmMapper">
+
+    <!-- 通用查询映射结果 -->
+    <!--<resultMap id="BaseResultMap" type="com.stylefeng.guns.rest.common.persistence.model.MtimeFilmT">
+        <id column="UUID" property="uuid" />
+        <result column="film_name" property="filmName" />
+        <result column="film_type" property="filmType" />
+        <result column="img_address" property="imgAddress" />
+        <result column="film_score" property="filmScore" />
+        <result column="film_preSaleNum" property="filmPresalenum" />
+        <result column="film_box_office" property="filmBoxOffice" />
+        <result column="film_source" property="filmSource" />
+        <result column="film_cats" property="filmCats" />
+        <result column="film_area" property="filmArea" />
+        <result column="film_date" property="filmDate" />
+        <result column="film_time" property="filmTime" />
+        <result column="film_status" property="filmStatus" />
+    </resultMap>-->
+    <select id="selectHotFilmNum" resultType="_int">
+        select count(1) from mtime_film_t where film_status = 1
+    </select>
+
+    <resultMap id="hotFilmInfoResultMap" type="com.stylefeng.guns.rest.modular.film.vo.HotFilmInfoVO">
+        <id column="UUID" property="filmId" />
+        <result column="film_type" property="filmType" />
+        <result column="img_address" property="imgAddress" />
+        <result column="film_name" property="filmName" />
+        <result column="film_score" property="filmScore" />
+    </resultMap>
+    <select id="selectHotFilmInfo" resultMap="hotFilmInfoResultMap">
+        SELECT
+            UUID,
+            film_type,
+            img_address,
+            film_name,
+            film_score
+        FROM
+            mtime_film_t
+        WHERE
+            film_status = 1
+    </select>
+
+    <select id="selectSoonFilmNum" resultType="_int">
+        select count(1) from mtime_film_t where film_status = 2
+    </select>
+
+    <resultMap id="soonFilmInfoResultMap" type="com.stylefeng.guns.rest.modular.film.vo.SoonFilmInfoVO">
+        <id column="UUID" property="filmId" />
+        <result column="film_type" property="filmType" />
+        <result column="img_address" property="imgAddress" />
+        <result column="film_name" property="filmName" />
+        <result column="film_preSaleNum" property="expectNum" />
+        <result column="film_time" property="showtime" />
+    </resultMap>
+    <select id="selectSoonFilmInfo" resultMap="soonFilmInfoResultMap">
+        SELECT
+            UUID,
+            film_type,
+            img_address,
+            film_name,
+            film_preSaleNum,
+            film_time
+        FROM
+            mtime_film_t
+        WHERE
+            film_status = 2
+    </select>
+
+    <resultMap id="boxRankingFilmResultMap" type="com.stylefeng.guns.rest.modular.film.vo.BoxRankingFilmVO">
+        <result column="UUID" property="filmId"/>
+        <result column="img_address" property="imgAddress"/>
+        <result column="film_name" property="filmName"/>
+        <result column="film_box_office" property="boxNum"/>
+    </resultMap>
+    <select id="selectBoxRankingFilms" resultMap="boxRankingFilmResultMap">
+        SELECT
+            t.UUID,
+            t.img_address,
+            t.film_name,
+            t.film_box_office
+        FROM
+            mtime_film_t t
+        ORDER BY
+            t.film_box_office DESC
+    </select>
+
+    <resultMap id="expectRankingFilmResultMap" type="com.stylefeng.guns.rest.modular.film.vo.ExpectRankingFilmVO">
+        <result column="UUID" property="filmId"/>
+        <result column="img_address" property="imgAddress"/>
+        <result column="film_name" property="filmName"/>
+        <result column="film_preSaleNum" property="expectNum"/>
+    </resultMap>
+    <select id="selectExpectRankinFilms" resultMap="expectRankingFilmResultMap">
+        SELECT
+            t.UUID,
+            t.img_address,
+            t.film_name,
+            t.film_preSaleNum
+        FROM
+            mtime_film_t t
+        ORDER BY
+            t.film_preSaleNum DESC
+    </select>
+
+    <resultMap id="top100FilmResultMap" type="com.stylefeng.guns.rest.modular.film.vo.Top100FilmVO">
+        <result column="UUID" property="filmId"/>
+        <result column="img_address" property="imgAddress"/>
+        <result column="film_name" property="filmName"/>
+        <result column="film_score" property="score"/>
+    </resultMap>
+    <select id="selectTop100Films" resultMap="top100FilmResultMap">
+        SELECT
+            t.UUID,
+            t.img_address,
+            t.film_name,
+            t.film_score
+        FROM
+            mtime_film_t t
+        ORDER BY
+            t.film_score DESC
+    </select>
+
+
+    <resultMap id="catResultMap" type="com.stylefeng.guns.rest.modular.film.vo.CatVO">
+        <result column="UUID" property="catId"/>
+        <result column="show_name" property="catName"/>
+    </resultMap>
+    <select id="selectCatById" resultMap="catResultMap">
+        SELECT UUID, show_name FROM `mtime_cat_dict_t`
+        <if test="catId != 99">
+            where UUID = #{catId}
+        </if>
+    </select>
+
+    <resultMap id="sourceResultMap" type="com.stylefeng.guns.rest.modular.film.vo.SourceVO">
+        <result column="UUID" property="sourceId"/>
+        <result column="show_name" property="sourceName"/>
+    </resultMap>
+    <select id="selectSourceById" resultMap="sourceResultMap">
+        SELECT UUID, show_name FROM `mtime_source_dict_t`
+        <if test="sourceId != 99">
+            where UUID = #{sourceId}
+        </if>
+    </select>
+
+    <resultMap id="yearResultMap" type="com.stylefeng.guns.rest.modular.film.vo.YearVo">
+        <result column="UUID" property="yearId"/>
+        <result column="show_name" property="yearName"/>
+    </resultMap>
+    <select id="selectYearById" resultMap="yearResultMap">
+        SELECT UUID, show_name FROM `mtime_year_dict_t`
+        <if test="yearId != 99">
+            where UUID = #{yearId}
+        </if>
+    </select>
+
+
+</mapper>

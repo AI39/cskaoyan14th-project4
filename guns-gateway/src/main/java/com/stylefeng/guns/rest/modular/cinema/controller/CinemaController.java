@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value = "cinema", method = RequestMethod.GET)
 public class CinemaController {
-    @Reference
+    @Reference(check = false)
     CinemaService cinemaService;
 
     @RequestMapping(value = "getCinemas")
