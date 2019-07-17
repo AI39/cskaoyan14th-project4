@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class FilmConditionVO implements Serializable {
+    private static final long serialVersionUID = -4395369553674700825L;
     private List<CatVO> catInfo;
     private List<SourceVO> sourceInfo;
     private List<YearVo> yearInfo;
