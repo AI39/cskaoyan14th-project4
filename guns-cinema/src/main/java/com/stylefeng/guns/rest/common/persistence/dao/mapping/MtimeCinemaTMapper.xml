@@ -15,4 +15,7 @@
         <result column="minimum_price" property="minimumPrice" />
     </resultMap>
 
+
+
+
 </mapper>

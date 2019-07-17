@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.rest.common.persistence.dao.CinemaMapper">
+
+
+    <resultMap id="CinemaListVoDataMapper" type="com.stylefeng.guns.rest.modular.cinema.vo.CinemaListVoData">
+        <result column="UUID" property="uuid"/>
+        <result column="cinema_name" property="cinemaName"/>
+        <result column="cinema_address" property="address"/>
+        <result column="minimum_price" property="minimumPrice"/>
+    </resultMap>
+    <select id="selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId" resultMap="CinemaListVoDataMapper">
+        select UUID, cinema_name, cinema_address, minimum_price
+        from mtime_cinema_t
+        <where>
+            <if test="brandId lt 99">
+                brand_id = #{brandId}
+            </if>
+            <if test="districtId lt 99">
+                and
+                area_id = #{districtId}
+            </if>
+            <if test="hallType lt 99">
+                and
+                hall_ids like concat('%',#{hallType},'%')
+            </if>
+        </where>
+    </select>
+
+    <resultMap id="FieldListVoDataMapper" type="com.stylefeng.guns.rest.modular.cinema.vo.FieldListVoData">
+        <association property="cinemaInfo" javaType="com.stylefeng.guns.rest.modular.cinema.vo.CinemaInfo">
+            <result column="mc_UUID" property="cinemaId"/>
+            <result column="mc_img_address" property="imgUrl"/>
+            <result column="mc_cinema_name" property="cinemaName"/>
+            <result column="mc_cinema_address" property="cinemaAddress"/>
+            <result column="mc_cinema_phone" property="cinemaPhone"/>
+        </association>
+        <collection property="filmList" ofType="com.stylefeng.guns.rest.modular.cinema.vo.CinemaFilm">
+            <result column="mhfi_film_id" property="filmId"/>
+            <result column="mhfi_film_name" property="filmName"/>
+            <result column="mhfi_film_length" property="filmLength"/>
+            <result column="mhfi_film_language" property="filmType"/>
+            <result column="mhfi_film_cats" property="filmCats"/>
+            <result column="mhfi_actors" property="actors"/>
+            <result column="mhfi_img_address" property="imgAddress"/>
+            <collection property="filmFields" ofType="com.stylefeng.guns.rest.modular.cinema.vo.CinemaFilmField">
+                <result column="mf_UUID" property="fieldId"/>
+                <result column="mf_begin_time" property="beginTime"/>
+                <result column="mf_end_time" property="endTime"/>
+                <result column="mf_film_language" property="language"/>
+                <result column="mf_hall_name" property="hallName"/>
+                <result column="mf_price" property="price"/>
+            </collection>
+        </collection>
+    </resultMap>
+    <select id="selectFieldListVoDataByCinemaId" resultMap="FieldListVoDataMapper">
+        select mc.UUID as mc_UUID, mc.img_address as mc_img_address, mc.cinema_name as mc_cinema_name, mc.cinema_address as mc_cinema_address, mc.cinema_phone as mc_cinema_phone,
+               mhfi.film_id as mhfi_film_id, mhfi.film_name as mhfi_film_name, mhfi.film_length as mhfi_film_length, mhfi.film_language as mhfi_film_language, mhfi.film_cats as mhfi_film_cats, mhfi.actors as mhfi_actors, mhfi.img_address as mhfi_img_address,
+               mf.UUID as mf_UUID, mf.begin_time as mf_begin_time, mf.end_time as mf_end_time, mhfi.film_language as mf_film_language, mf.hall_name as mf_hall_name, mf.price as mf_price
+        from mtime_cinema_t as mc
+        left join mtime_field_t as mf on mc.UUID = mf.cinema_id
+        left join mtime_hall_film_info_t as mhfi on mf.film_id = mhfi.film_id
+        where mc.UUID = #{cinemaId}
+    </select>
+
+
+    <resultMap id="CinemaInfoMapper" type="com.stylefeng.guns.rest.modular.cinema.vo.CinemaInfo">
+        <result column="mc_UUID" property="cinemaId"/>
+        <result column="mc_img_address" property="imgUrl"/>
+        <result column="mc_cinema_name" property="cinemaName"/>
+        <result column="mc_cinema_address" property="cinemaAddress"/>
+        <result column="mc_cinema_phone" property="cinemaPhone"/>
+    </resultMap>
+    <select id="selectCinemaInfoByCinemaId" resultMap="CinemaInfoMapper">
+        select mc.UUID as mc_UUID, mc.img_address as mc_img_address, mc.cinema_name as mc_cinema_name, mc.cinema_address as mc_cinema_address, mc.cinema_phone as mc_cinema_phone
+        from mtime_cinema_t as mc
+        where mc.UUID = #{cinemaId}
+    </select>
+
+    <resultMap id="CinemaFilmMapper" type="com.stylefeng.guns.rest.modular.cinema.vo.CinemaFilm">
+        <result column="mhfi_film_id" property="filmId"/>
+        <result column="mhfi_film_name" property="filmName"/>
+        <result column="mhfi_film_length" property="filmLength"/>
+        <result column="mhfi_film_language" property="filmType"/>
+        <result column="mhfi_film_cats" property="filmCats"/>
+        <result column="mhfi_actors" property="actors"/>
+        <result column="mhfi_img_address" property="imgAddress"/>
+        <collection property="filmFields" ofType="com.stylefeng.guns.rest.modular.cinema.vo.CinemaFilmField">
+            <result column="mf_UUID" property="fieldId"/>
+            <result column="mf_begin_time" property="beginTime"/>
+            <result column="mf_end_time" property="endTime"/>
+            <result column="mf_film_language" property="language"/>
+            <result column="mf_hall_name" property="hallName"/>
+            <result column="mf_price" property="price"/>
+        </collection>
+    </resultMap>
+    <select id="selectCinemaFilmByCinemaId" resultMap="CinemaFilmMapper">
+        select mhfi.film_id as mhfi_film_id, mhfi.film_name as mhfi_film_name, mhfi.film_length as mhfi_film_length, mhfi.film_language as mhfi_film_language, mhfi.film_cats as mhfi_film_cats, mhfi.actors as mhfi_actors, mhfi.img_address as mhfi_img_address,
+               mf.UUID as mf_UUID, mf.begin_time as mf_begin_time, mf.end_time as mf_end_time, mhfi.film_language as mf_film_language, mf.hall_name as mf_hall_name, mf.price as mf_price
+        from mtime_cinema_t as mc
+        left join mtime_field_t as mf on mc.UUID = mf.cinema_id
+        left join mtime_hall_film_info_t as mhfi on mf.film_id = mhfi.film_id
+        where mc.UUID = #{cinemaId}
+    </select>
+
+</mapper>
