@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("cinema")
 public class CinemaController {
-    @Reference
+    @Reference(check = false)
     CinemaService cinemaService;
 
     @RequestMapping("test")
