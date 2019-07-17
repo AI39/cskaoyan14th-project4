@@ -8,6 +8,7 @@ import com.stylefeng.guns.rest.modular.film.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -72,7 +73,9 @@ public class FilmDetailServiceImpl implements FilmDetailService{
         Integer filmLength = filmInfoT.getFilmLength();
         filmDetail.setInfo02(area.getShowName()+"/"+filmLength+"分钟");
         Date filmTime = filmT.getFilmTime();
-        filmDetail.setInfo03(""+filmTime+area.getShowName()+"上映");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String filmDate = dateFormat.format(filmTime);
+        filmDetail.setInfo03(""+filmDate+area.getShowName()+"上映");
 
         FilmDetailInfoVO filmDetailInfo = new FilmDetailInfoVO();
         filmDetailInfo.setBiography(filmInfoT.getBiography());
@@ -144,7 +147,9 @@ public class FilmDetailServiceImpl implements FilmDetailService{
         Integer filmLength = filmInfoT.getFilmLength();
         filmDetail.setInfo02(area.getShowName()+"/"+filmLength+"分钟");
         Date filmTime = filmT.getFilmTime();
-        filmDetail.setInfo03(""+filmTime+area.getShowName()+"上映");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String filmDate = dateFormat.format(filmTime);
+        filmDetail.setInfo03(""+filmDate+area.getShowName()+"上映");
 
         FilmDetailInfoVO filmDetailInfo = new FilmDetailInfoVO();
         filmDetailInfo.setBiography(filmInfoT.getBiography());
