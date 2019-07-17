@@ -3,6 +3,7 @@ package com.stylefeng.guns.rest.modular.film.vo;
 import java.io.Serializable;
 
 public class Top100FilmVO implements Serializable {
+    private static final long serialVersionUID = -8913159935469352540L;
     private int filmId;
     private String imgAddress;
     private String filmName;

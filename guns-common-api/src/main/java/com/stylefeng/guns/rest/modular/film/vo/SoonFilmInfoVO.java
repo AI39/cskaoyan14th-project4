@@ -4,6 +4,7 @@ package com.stylefeng.guns.rest.modular.film.vo;
 import java.io.Serializable;
 
 public class SoonFilmInfoVO implements Serializable {
+    private static final long serialVersionUID = -6218509949665183161L;
     private int filmId;
     private int filmType;
     private String imgAddress;

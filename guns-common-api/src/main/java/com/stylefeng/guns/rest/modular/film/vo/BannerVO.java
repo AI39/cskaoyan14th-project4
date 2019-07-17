@@ -3,6 +3,7 @@ package com.stylefeng.guns.rest.modular.film.vo;
 import java.io.Serializable;
 
 public class BannerVO implements Serializable {
+    private static final long serialVersionUID = 6630977170979868143L;
     private int bannerId;
     private String bannerAddress;
     private String bannerUrl;

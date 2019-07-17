@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class FilmWrapper<T> implements Serializable {
+    private static final long serialVersionUID = -2751364781023665518L;
     int filmNum;
     List<T> filmInfo;
 

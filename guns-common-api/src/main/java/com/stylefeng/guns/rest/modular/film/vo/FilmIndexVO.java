@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class FilmIndexVO implements Serializable {
+    private static final long serialVersionUID = -4286824781052456850L;
     private List<BannerVO> banners;
     private FilmWrapper<HotFilmInfoVO> hotFilms;
     private FilmWrapper<SoonFilmInfoVO> soonFilms;
