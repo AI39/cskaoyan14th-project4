@@ -3,6 +3,7 @@ package com.stylefeng.guns.rest.modular.film.vo;
 import java.io.Serializable;
 
 public class BoxRankingFilmVO implements Serializable {
+    private static final long serialVersionUID = 5799783802175772400L;
     private int filmId;
     private String imgAddress;
     private String filmName;

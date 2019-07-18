@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BannerServiceImpl implements BannerService {
     @Autowired
-    BannerMapper bannerMapper;
+    private BannerMapper bannerMapper;
 
     @Override
     public boolean selectValidBannerExist() {

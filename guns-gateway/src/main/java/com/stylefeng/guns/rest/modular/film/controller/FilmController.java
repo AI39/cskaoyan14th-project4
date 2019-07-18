@@ -10,6 +10,7 @@ import com.stylefeng.guns.rest.modular.film.service.FilmIndexService;
 import com.stylefeng.guns.rest.modular.film.vo.ConditionResponseVO;
 import com.stylefeng.guns.rest.modular.film.vo.ExceptionResponseVO;
 import com.stylefeng.guns.rest.modular.film.vo.ResponseVo;
+import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,7 @@ public class FilmController {
     FilmIndexService filmIndexService;
     @Reference
     BannerService bannerService;
+    private static final String IMG_PRE = "http://img.meetingshop.cn/";
 
     @RequestMapping(value = {"getIndex"}, method = {RequestMethod.GET})
     public Object getIndex() {
@@ -46,7 +48,7 @@ public class FilmController {
             return exceptionResponseVo;
         }
         responseVo.setData(filmIndexData);
-        responseVo.setImgPre("http://img.meetingshop.cn/");
+        responseVo.setImgPre(IMG_PRE);
         responseVo.setStatus(0);
         return responseVo;
     }

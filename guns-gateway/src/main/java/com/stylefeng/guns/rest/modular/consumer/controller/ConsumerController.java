@@ -1,6 +1,7 @@
 package com.stylefeng.guns.rest.modular.consumer.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+
 import com.stylefeng.guns.rest.modular.consumer.service.ConsumerService;
 import com.stylefeng.guns.rest.modular.consumer.vo.ErrorMap;
 import com.stylefeng.guns.rest.modular.consumer.vo.ErrorVo;
@@ -10,9 +11,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+import com.stylefeng.guns.rest.modular.user.service.UserService;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+
 @RestController
 @RequestMapping("user")
 public class ConsumerController {
+
     @Reference(check = false)
     ConsumerService consumerService;
 
@@ -42,21 +50,22 @@ public class ConsumerController {
 
     @PostMapping("check")
     @ResponseBody
-    public ErrorVo check(@Param("username") String username){
+    public ErrorVo check(@Param("username") String username) {
         ErrorVo errorVo = new ErrorVo();
         int i = consumerService.check(username);
-        if (i == 0){
+        if (i == 0) {
             errorVo.setStatus(0);
             errorVo.setMsg("验证成功");
-        }else if(i == 1){
+        } else if (i == 1) {
             errorVo.setStatus(1);
             errorVo.setMsg("用户已存在");
-        }else if (i == 999){
+        } else if (i == 999) {
             errorVo.setStatus(999);
             errorVo.setMsg("系统出现异常，请联系管理员");
         }
         return errorVo;
     }
+
 
     @PostMapping("updateUserInfo")
     @ResponseBody
