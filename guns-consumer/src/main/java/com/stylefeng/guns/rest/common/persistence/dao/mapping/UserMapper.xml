@@ -7,5 +7,7 @@
 		<id column="id" property="id" />
 		<result column="userName" property="userName" />
 	</resultMap>
-
+	<select id="selectById" resultType="String">
+		select user_name from mtime_user_t where UUID = #{i}
+	</select>
 </mapper>

@@ -3,10 +3,13 @@ package com.stylefeng.guns.rest.modular.film.service.impl;
 
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.baomidou.mybatisplus.plugins.pagination.PageHelper;
 import com.stylefeng.guns.rest.common.persistence.dao.BannerMapper;
 import com.stylefeng.guns.rest.common.persistence.dao.FilmMapper;
+import com.stylefeng.guns.rest.common.persistence.dao.GetFilmMapper;
 import com.stylefeng.guns.rest.modular.film.exception.NullConditionException;
 import com.stylefeng.guns.rest.modular.film.service.FilmIndexService;
+import com.stylefeng.guns.rest.modular.film.service.GetFilmService;
 import com.stylefeng.guns.rest.modular.film.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -78,4 +81,7 @@ public class FilmIndexServiceImpl implements FilmIndexService {
 
         return filmConditionVo;
     }
-}
+
+
+    }
+
