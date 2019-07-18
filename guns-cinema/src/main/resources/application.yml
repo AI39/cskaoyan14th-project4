@@ -36,7 +36,11 @@ spring:
       name: dubbo
       port: 20881
   datasource: # 配置数据源
+<<<<<<< HEAD
       url: jdbc:mysql://127.0.0.1:3306/guns_rest?autoReconnect=true&useUnicode=true&characterEncoding=utf8
+=======
+      url: jdbc:mysql://127.0.0.1:3306/project4?autoReconnect=true&useUnicode=true&characterEncoding=utf8
+>>>>>>> 0f94708964b4d78cd69da38cb6763d788c38136d
       username: root
       password: 123456
       filters: log4j,wall,mergeStat
@@ -46,3 +50,10 @@ logging:
   level.com.stylefeng: debug
   path: logs/
   file: guns-rest.log
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params:
+  #params不配置会用默认的
