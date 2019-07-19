@@ -48,15 +48,18 @@ public class FilmIndexServiceImpl implements FilmIndexService {
         filmIndexData.setSoonFilms(soonFilms);
 
         //获得boxRanking
-        List<BoxRankingFilmVO> boxRanking = filmMapper.selectBoxRankingFilms();
+        int boxRankingLimit = 9;
+        List<BoxRankingFilmVO> boxRanking = filmMapper.selectBoxRankingFilms(boxRankingLimit);
         filmIndexData.setBoxRanking(boxRanking);
 
         //获得expectRanking
-        List<ExpectRankingFilmVO> expectRanking = filmMapper.selectExpectRankinFilms();
+        int expectRankingLimit = 7;
+        List<ExpectRankingFilmVO> expectRanking = filmMapper.selectExpectRankinFilms(expectRankingLimit);
         filmIndexData.setExpectRanking(expectRanking);
 
         //获得top100
-        List<Top100FilmVO> top100 = filmMapper.selectTop100Films();
+        int top100Limit = 9;
+        List<Top100FilmVO> top100 = filmMapper.selectTop100Films(top100Limit);
         filmIndexData.setTop100(top100);
 
         return filmIndexData;
