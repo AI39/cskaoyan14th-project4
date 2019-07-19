@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.rest.common.persistence.dao.GetFilmMapper">
+
+    <resultMap id="selectGetFilmMapper" type="com.stylefeng.guns.rest.modular.film.vo.GetFilmVO">
+        <result column="UUID" property="filmId"/>
+        <result column="film_name" property="filmName"/>
+        <result column="img_address" property="imgAddress"/>
+        <result column="film_type" property="filmType"/>
+        <result column="film_score" property="filmScore"/>
+    </resultMap>
+    <select id="selectGetFilmDataListByIdId" resultMap="selectGetFilmMapper">
+        select UUID,film_name,img_address,film_type,film_score
+        from  mtime_film_t
+        <where>
+            <if test="showType lt 1">
+                film_status = #{showType}
+            </if>
+            <if test="catId lt 99">
+
+            film_cats = #{catId}
+
+            </if>
+            <if test="sourceId lt 99">
+            film_source = #{sourceId}
+
+            </if>
+            <if test="yearId lt 99">
+
+            film_date = #{yearId}
+
+            </if>
+
+
+        </where>
+
+    </select>
+</mapper>
