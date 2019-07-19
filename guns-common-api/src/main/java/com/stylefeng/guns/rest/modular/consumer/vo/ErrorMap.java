@@ -15,16 +15,17 @@ public class ErrorMap {
         objectObjectHashMap.put("status", 0);
         return objectObjectHashMap;
     }
-    public static Map<Object, Object> getfile2(){
+    public static Map<Object, Object> getfile2(int status, String msg){
         HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
-        objectObjectHashMap.put("msg","用户信息修改失败");
-        objectObjectHashMap.put("status", 1);
+        objectObjectHashMap.put("status", status);
+        objectObjectHashMap.put("msg",msg);
         return objectObjectHashMap;
     }
-    public static Map<Object, Object> getfile3(){
+    /*public static Map<Object, Object> getfile3(int status, String msg){
         HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
-        objectObjectHashMap.put("status", 999);
-        objectObjectHashMap.put("msg","系统出现异常，请联系管理员");
+        objectObjectHashMap.put("status", status);
+        objectObjectHashMap.put("msg",msg);
         return objectObjectHashMap;
-    }
+    }*/
+    /*上面的3可以不用要*/
 }

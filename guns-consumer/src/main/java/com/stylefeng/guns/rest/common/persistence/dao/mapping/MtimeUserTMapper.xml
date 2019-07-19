@@ -68,4 +68,14 @@
         from mtime_user_t
         where UUID = #{uuid}
     </select>
+
+    <select id="queryPasswordByUsername" resultType="java.lang.String">
+        select user_pwd from mtime_user_t
+        where user_name = #{username}
+    </select>
+    <select id="queryUserByusername" resultMap="ResultMap">
+        select UUID, user_name, nick_name, user_sex, birthday, email, user_phone, address, head_url, biography, life_state, begin_time, update_time
+        from mtime_user_t
+        where user_name = #{username}
+    </select>
 </mapper>

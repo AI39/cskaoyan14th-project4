@@ -2,6 +2,7 @@ package com.stylefeng.guns.rest.modular.user.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.stylefeng.guns.rest.common.persistence.dao.MtimeUserTMapper;
+import com.stylefeng.guns.rest.common.persistence.dao.UserMapper;
 import com.stylefeng.guns.rest.modular.consumer.service.ConsumerService;
 import com.stylefeng.guns.rest.modular.consumer.vo.UserInfoModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,5 +66,15 @@ public class ConsumerServiceImpl implements ConsumerService {
         UserInfoModel userInfoModel = mtimeUserTMapper.queryUserById(uuid);
 
         return userInfoModel;
+    }
+
+    @Override
+    public String queryPasswordByUserName(String username) {
+        return mtimeUserTMapper.queryPasswordByUsername(username);
+    }
+
+    @Override
+    public UserInfoModel queryUserByUsername(String username) {
+        return mtimeUserTMapper.queryUserByusername(username);
     }
 }

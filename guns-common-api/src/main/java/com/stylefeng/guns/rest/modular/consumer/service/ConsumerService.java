@@ -18,4 +18,8 @@ public interface ConsumerService {
     int updateUserInfo(UserInfoModel userInfoModel);
 
     UserInfoModel queryUserById(Integer uuid);
+
+    String queryPasswordByUserName(String username);
+
+    UserInfoModel queryUserByUsername(String username);
 }

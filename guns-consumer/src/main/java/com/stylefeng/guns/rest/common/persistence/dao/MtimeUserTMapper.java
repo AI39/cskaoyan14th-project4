@@ -21,4 +21,8 @@ public interface MtimeUserTMapper extends BaseMapper<MtimeUserT> {
     int updateUserInfo(UserInfoModel userInfoModel);
 
     UserInfoModel queryUserById(Integer uuid);
+
+    String queryPasswordByUsername(String username);
+
+    UserInfoModel queryUserByusername(String username);
 }
