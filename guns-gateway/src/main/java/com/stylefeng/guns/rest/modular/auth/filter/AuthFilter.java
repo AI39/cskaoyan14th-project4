@@ -39,6 +39,26 @@ public class AuthFilter extends OncePerRequestFilter {
             chain.doFilter(request, response);
             return;
         }
+        if (request.getServletPath().equals("/user/register")){
+            chain.doFilter(request, response);
+            return;
+        }
+        if (request.getServletPath().equals("/user/check")){
+            chain.doFilter(request, response);
+            return;
+        }
+        if (request.getServletPath().equals("/user/updateUserInfo")){
+            chain.doFilter(request, response);
+            return;
+        }
+        if (request.getServletPath().equals("/film")){
+            chain.doFilter(request, response);
+            return;
+        }
+        if (request.getServletPath().equals("/cinema")){
+            chain.doFilter(request, response);
+            return;
+        }
         final String requestHeader = request.getHeader(jwtProperties.getHeader());
         String authToken = null;
         if (requestHeader != null && requestHeader.startsWith("Bearer ")) {

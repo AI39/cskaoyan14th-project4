@@ -10,7 +10,6 @@ import com.stylefeng.guns.rest.modular.film.service.FilmIndexService;
 import com.stylefeng.guns.rest.modular.film.vo.ConditionResponseVO;
 import com.stylefeng.guns.rest.modular.film.vo.ExceptionResponseVO;
 import com.stylefeng.guns.rest.modular.film.vo.ResponseVo;
-import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +22,6 @@ public class FilmController {
     FilmIndexService filmIndexService;
     @Reference
     BannerService bannerService;
-
     private static final String IMG_PRE = "http://img.meetingshop.cn/";
 
     @RequestMapping(value = {"getIndex"}, method = {RequestMethod.GET})
@@ -43,8 +41,6 @@ public class FilmController {
         try {
             filmIndexData = filmIndexService.selectFilmIndexData();
         } catch (Exception e) {
-            Logger logger = Logger.getLogger(this.getClass());
-            logger.info(e.getMessage());
             e.printStackTrace();
             exceptionResponseVo.setMsg("系统出现异常，请联系管理员");
             exceptionResponseVo.setStatus(999);

@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class YearVo implements Serializable {
     private static final long serialVersionUID = 3440714017696407284L;
-    private String yearId;
+    private int yearId;
     private String yearName;
-    private boolean isActive;
+    private boolean isActive = false;
 
-    public String getYearId() {
+    public int getYearId() {
         return yearId;
     }
 
-    public void setYearId(String yearId) {
+    public void setYearId(int yearId) {
         this.yearId = yearId;
     }
 

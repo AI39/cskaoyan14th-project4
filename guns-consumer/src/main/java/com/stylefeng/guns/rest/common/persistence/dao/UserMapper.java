@@ -13,4 +13,5 @@ import com.stylefeng.guns.rest.common.persistence.model.User;
  */
 public interface UserMapper extends BaseMapper<User> {
 
+
 }

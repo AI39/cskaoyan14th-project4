@@ -170,6 +170,11 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>redis</artifactId>
+                <version>2.9.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

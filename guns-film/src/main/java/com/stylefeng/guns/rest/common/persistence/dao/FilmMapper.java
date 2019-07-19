@@ -15,11 +15,11 @@ public interface FilmMapper {
 
     List<SoonFilmInfoVO> selectSoonFilmInfo();
 
-    List<BoxRankingFilmVO> selectBoxRankingFilms();
+    List<BoxRankingFilmVO> selectBoxRankingFilms(@Param("limit") int limit);
 
-    List<ExpectRankingFilmVO> selectExpectRankinFilms();
+    List<ExpectRankingFilmVO> selectExpectRankinFilms(@Param("limit") int limit);
 
-    List<Top100FilmVO> selectTop100Films();
+    List<Top100FilmVO> selectTop100Films(@Param("limit") int limit);
 
     List<CatVO> selectCatById(@Param("catId") int catId);
 

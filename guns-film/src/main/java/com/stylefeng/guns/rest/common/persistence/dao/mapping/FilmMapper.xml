@@ -84,6 +84,7 @@
             mtime_film_t t
         ORDER BY
             t.film_box_office DESC
+        limit #{limit}
     </select>
 
     <resultMap id="expectRankingFilmResultMap" type="com.stylefeng.guns.rest.modular.film.vo.ExpectRankingFilmVO">
@@ -102,6 +103,7 @@
             mtime_film_t t
         ORDER BY
             t.film_preSaleNum DESC
+        limit #{limit}
     </select>
 
     <resultMap id="top100FilmResultMap" type="com.stylefeng.guns.rest.modular.film.vo.Top100FilmVO">
@@ -120,6 +122,7 @@
             mtime_film_t t
         ORDER BY
             t.film_score DESC
+        limit #{limit}
     </select>
 
 

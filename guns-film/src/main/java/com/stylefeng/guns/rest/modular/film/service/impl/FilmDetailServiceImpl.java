@@ -95,13 +95,13 @@ public class FilmDetailServiceImpl implements FilmDetailService{
 
         filmDetailInfo.setActors(filmCast);
 
-        filmDetail.setInfo04(filmDetailInfo);
-
         String filmImgs = filmInfoT.getFilmImgs();
         String[] filmImages=filmImgs.split(",");
         ImageVO imageVo = new ImageVO(filmImages[0],filmImages[1],filmImages[2],filmImages[3],filmImages[4]);
-        filmDetail.setImgVO(imageVo);
+        filmDetailInfo.setImgVO(imageVo);
+        filmDetailInfo.setFilmId(""+filmId);
 
+        filmDetail.setInfo04(filmDetailInfo);
 
         return filmDetail;
     }
@@ -174,8 +174,11 @@ public class FilmDetailServiceImpl implements FilmDetailService{
         String filmImgs = filmInfoT.getFilmImgs();
         String[] filmImages=filmImgs.split(",");
         ImageVO imageVo = new ImageVO(filmImages[0],filmImages[1],filmImages[2],filmImages[3],filmImages[4]);
-        filmDetail.setImgVO(imageVo);
 
+        filmDetailInfo.setImgVO(imageVo);
+        filmDetailInfo.setFilmId(""+filmT.getUuid());
+
+        filmDetail.setInfo04(filmDetailInfo);
 
         return filmDetail;
     }
