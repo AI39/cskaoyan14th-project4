@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class SourceVO implements Serializable {
     private static final long serialVersionUID = -4806191742764642868L;
-    private String sourceId;
+    private int sourceId;
     private String sourceName;
     private boolean isActive = false;
 
-    public String getSourceId() {
+    public int getSourceId() {
         return sourceId;
     }
 
-    public void setSourceId(String sourceId) {
+    public void setSourceId(int sourceId) {
         this.sourceId = sourceId;
     }
 
