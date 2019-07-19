@@ -3,13 +3,10 @@ package com.stylefeng.guns.rest.modular.film.service.impl;
 
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.baomidou.mybatisplus.plugins.pagination.PageHelper;
 import com.stylefeng.guns.rest.common.persistence.dao.BannerMapper;
 import com.stylefeng.guns.rest.common.persistence.dao.FilmMapper;
-import com.stylefeng.guns.rest.common.persistence.dao.GetFilmMapper;
 import com.stylefeng.guns.rest.modular.film.exception.NullConditionException;
 import com.stylefeng.guns.rest.modular.film.service.FilmIndexService;
-import com.stylefeng.guns.rest.modular.film.service.GetFilmService;
 import com.stylefeng.guns.rest.modular.film.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -70,11 +67,12 @@ public class FilmIndexServiceImpl implements FilmIndexService {
         FilmConditionVO filmConditionVo = new FilmConditionVO();
         //获取cat
         List<CatVO> catInfo = filmMapper.selectCatById(99);
+
         for (int i = 0; i < catInfo.size(); i++) {
-            if(i == catId) {
-                CatVO catVO = catInfo.remove(i);
+            CatVO catVO = catInfo.get(i);
+            if(catVO.getCatId() == catId) {
                 catVO.setIsActive(true);
-                catInfo.add(catVO);
+                catInfo.set(i, catVO);
                 break;
             }
         }
@@ -83,26 +81,30 @@ public class FilmIndexServiceImpl implements FilmIndexService {
 
         //获取source
         List<SourceVO> sourceInfo = filmMapper.selectSourceById(99);
+
         for (int i = 0; i < sourceInfo.size(); i++) {
-            if(i == sourceId) {
-                SourceVO sourceVO = sourceInfo.remove(i);
+            SourceVO sourceVO = sourceInfo.get(i);
+            if(sourceVO.getSourceId() == sourceId) {
                 sourceVO.setIsActive(true);
-                sourceInfo.add(sourceVO);
+                sourceInfo.set(i, sourceVO);
                 break;
             }
         }
+
         filmConditionVo.setSourceInfo(sourceInfo);
 
         //获取year
         List<YearVo> yearInfo = filmMapper.selectYearById(99);
+
         for (int i = 0; i < yearInfo.size(); i++) {
-            if(i == yearId) {
-                YearVo yearVo = yearInfo.remove(i);
+            YearVo yearVo = yearInfo.get(i);
+            if(yearVo.getYearId() == yearId) {
                 yearVo.setIsActive(true);
-                yearInfo.add(yearVo);
+                yearInfo.set(i, yearVo);
                 break;
             }
         }
+
         filmConditionVo.setYearInfo(yearInfo);
 
         if((catInfo == null || catInfo.size() == 0) && (sourceInfo == null || sourceInfo.size() == 0) && (yearInfo == null || yearInfo.size() == 0)) {

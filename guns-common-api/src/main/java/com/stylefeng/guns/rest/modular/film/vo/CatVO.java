@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class CatVO implements Serializable {
     private static final long serialVersionUID = -5817433398594146215L;
-    private String catId;
+    private int catId;
     private String catName;
     private boolean isActive = false;
 
-    public String getCatId() {
+    public int getCatId() {
         return catId;
     }
 
-    public void setCatId(String catId) {
+    public void setCatId(int catId) {
         this.catId = catId;
     }
 
