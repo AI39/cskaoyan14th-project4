@@ -6,7 +6,7 @@ public class CatVO implements Serializable {
     private static final long serialVersionUID = -5817433398594146215L;
     private String catId;
     private String catName;
-    private boolean isActive = true;
+    private boolean isActive = false;
 
     public String getCatId() {
         return catId;

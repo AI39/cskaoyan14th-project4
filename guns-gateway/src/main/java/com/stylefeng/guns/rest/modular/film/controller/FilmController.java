@@ -10,7 +10,6 @@ import com.stylefeng.guns.rest.modular.film.service.FilmIndexService;
 import com.stylefeng.guns.rest.modular.film.vo.ConditionResponseVO;
 import com.stylefeng.guns.rest.modular.film.vo.ExceptionResponseVO;
 import com.stylefeng.guns.rest.modular.film.vo.ResponseVo;
-import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;

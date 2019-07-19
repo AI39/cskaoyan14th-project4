@@ -6,7 +6,7 @@ public class YearVo implements Serializable {
     private static final long serialVersionUID = 3440714017696407284L;
     private String yearId;
     private String yearName;
-    private boolean isActive;
+    private boolean isActive = false;
 
     public String getYearId() {
         return yearId;

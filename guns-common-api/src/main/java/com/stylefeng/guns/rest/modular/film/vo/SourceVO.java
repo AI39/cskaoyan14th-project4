@@ -6,7 +6,7 @@ public class SourceVO implements Serializable {
     private static final long serialVersionUID = -4806191742764642868L;
     private String sourceId;
     private String sourceName;
-    private boolean isActive = true;
+    private boolean isActive = false;
 
     public String getSourceId() {
         return sourceId;

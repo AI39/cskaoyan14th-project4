@@ -11,6 +11,7 @@ import com.stylefeng.guns.rest.modular.film.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Iterator;
 import java.util.List;
 
 @Service(interfaceClass = FilmIndexService.class)
@@ -24,6 +25,7 @@ public class FilmIndexServiceImpl implements FilmIndexService {
     @Override
     public FilmIndexVO selectFilmIndexData() {
         FilmIndexVO filmIndexData = new FilmIndexVO();
+
         //获得banners
         List<BannerVO> banners = bannerMapper.selectValidBannerList();
         filmIndexData.setBanners(banners);
@@ -61,15 +63,40 @@ public class FilmIndexServiceImpl implements FilmIndexService {
     public FilmConditionVO selectFilmConditionData(int catId, int sourceId, int yearId) throws NullConditionException {
         FilmConditionVO filmConditionVo = new FilmConditionVO();
         //获取cat
-        List<CatVO> catInfo = filmMapper.selectCatById(catId);
+        List<CatVO> catInfo = filmMapper.selectCatById(99);
+        for (int i = 0; i < catInfo.size(); i++) {
+            if(i == catId) {
+                CatVO catVO = catInfo.remove(i);
+                catVO.setIsActive(true);
+                catInfo.add(catVO);
+                break;
+            }
+        }
+
         filmConditionVo.setCatInfo(catInfo);
 
         //获取source
-        List<SourceVO> sourceInfo = filmMapper.selectSourceById(sourceId);
+        List<SourceVO> sourceInfo = filmMapper.selectSourceById(99);
+        for (int i = 0; i < sourceInfo.size(); i++) {
+            if(i == sourceId) {
+                SourceVO sourceVO = sourceInfo.remove(i);
+                sourceVO.setIsActive(true);
+                sourceInfo.add(sourceVO);
+                break;
+            }
+        }
         filmConditionVo.setSourceInfo(sourceInfo);
 
         //获取year
-        List<YearVo> yearInfo = filmMapper.selectYearById(yearId);
+        List<YearVo> yearInfo = filmMapper.selectYearById(99);
+        for (int i = 0; i < yearInfo.size(); i++) {
+            if(i == yearId) {
+                YearVo yearVo = yearInfo.remove(i);
+                yearVo.setIsActive(true);
+                yearInfo.add(yearVo);
+                break;
+            }
+        }
         filmConditionVo.setYearInfo(yearInfo);
 
         if((catInfo == null || catInfo.size() == 0) && (sourceInfo == null || sourceInfo.size() == 0) && (yearInfo == null || yearInfo.size() == 0)) {
