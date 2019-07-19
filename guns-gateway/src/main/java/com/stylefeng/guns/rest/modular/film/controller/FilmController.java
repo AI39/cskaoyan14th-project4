@@ -22,6 +22,7 @@ public class FilmController {
     FilmIndexService filmIndexService;
     @Reference
     BannerService bannerService;
+    private static final String IMG_PRE = "http://img.meetingshop.cn/";
 
     @RequestMapping(value = {"getIndex"}, method = {RequestMethod.GET})
     public Object getIndex() {
@@ -46,7 +47,7 @@ public class FilmController {
             return exceptionResponseVo;
         }
         responseVo.setData(filmIndexData);
-        responseVo.setImgPre("http://img.meetingshop.cn/");
+        responseVo.setImgPre(IMG_PRE);
         responseVo.setStatus(0);
         return responseVo;
     }

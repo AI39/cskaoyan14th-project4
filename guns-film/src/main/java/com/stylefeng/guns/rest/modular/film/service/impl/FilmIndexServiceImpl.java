@@ -11,19 +11,21 @@ import com.stylefeng.guns.rest.modular.film.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Iterator;
 import java.util.List;
 
 @Service(interfaceClass = FilmIndexService.class)
 @Component
 public class FilmIndexServiceImpl implements FilmIndexService {
     @Autowired
-    BannerMapper bannerMapper;
+    private BannerMapper bannerMapper;
     @Autowired
-    FilmMapper filmMapper;
+    private FilmMapper filmMapper;
 
     @Override
     public FilmIndexVO selectFilmIndexData() {
         FilmIndexVO filmIndexData = new FilmIndexVO();
+
         //获得banners
         List<BannerVO> banners = bannerMapper.selectValidBannerList();
         filmIndexData.setBanners(banners);
@@ -43,15 +45,18 @@ public class FilmIndexServiceImpl implements FilmIndexService {
         filmIndexData.setSoonFilms(soonFilms);
 
         //获得boxRanking
-        List<BoxRankingFilmVO> boxRanking = filmMapper.selectBoxRankingFilms();
+        int boxRankingLimit = 9;
+        List<BoxRankingFilmVO> boxRanking = filmMapper.selectBoxRankingFilms(boxRankingLimit);
         filmIndexData.setBoxRanking(boxRanking);
 
         //获得expectRanking
-        List<ExpectRankingFilmVO> expectRanking = filmMapper.selectExpectRankinFilms();
+        int expectRankingLimit = 7;
+        List<ExpectRankingFilmVO> expectRanking = filmMapper.selectExpectRankinFilms(expectRankingLimit);
         filmIndexData.setExpectRanking(expectRanking);
 
         //获得top100
-        List<Top100FilmVO> top100 = filmMapper.selectTop100Films();
+        int top100Limit = 9;
+        List<Top100FilmVO> top100 = filmMapper.selectTop100Films(top100Limit);
         filmIndexData.setTop100(top100);
 
         return filmIndexData;
@@ -61,15 +66,45 @@ public class FilmIndexServiceImpl implements FilmIndexService {
     public FilmConditionVO selectFilmConditionData(int catId, int sourceId, int yearId) throws NullConditionException {
         FilmConditionVO filmConditionVo = new FilmConditionVO();
         //获取cat
-        List<CatVO> catInfo = filmMapper.selectCatById(catId);
+        List<CatVO> catInfo = filmMapper.selectCatById(99);
+
+        for (int i = 0; i < catInfo.size(); i++) {
+            CatVO catVO = catInfo.get(i);
+            if(catVO.getCatId() == catId) {
+                catVO.setIsActive(true);
+                catInfo.set(i, catVO);
+                break;
+            }
+        }
+
         filmConditionVo.setCatInfo(catInfo);
 
         //获取source
-        List<SourceVO> sourceInfo = filmMapper.selectSourceById(sourceId);
+        List<SourceVO> sourceInfo = filmMapper.selectSourceById(99);
+
+        for (int i = 0; i < sourceInfo.size(); i++) {
+            SourceVO sourceVO = sourceInfo.get(i);
+            if(sourceVO.getSourceId() == sourceId) {
+                sourceVO.setIsActive(true);
+                sourceInfo.set(i, sourceVO);
+                break;
+            }
+        }
+
         filmConditionVo.setSourceInfo(sourceInfo);
 
         //获取year
-        List<YearVo> yearInfo = filmMapper.selectYearById(yearId);
+        List<YearVo> yearInfo = filmMapper.selectYearById(99);
+
+        for (int i = 0; i < yearInfo.size(); i++) {
+            YearVo yearVo = yearInfo.get(i);
+            if(yearVo.getYearId() == yearId) {
+                yearVo.setIsActive(true);
+                yearInfo.set(i, yearVo);
+                break;
+            }
+        }
+
         filmConditionVo.setYearInfo(yearInfo);
 
         if((catInfo == null || catInfo.size() == 0) && (sourceInfo == null || sourceInfo.size() == 0) && (yearInfo == null || yearInfo.size() == 0)) {
@@ -78,4 +113,7 @@ public class FilmIndexServiceImpl implements FilmIndexService {
 
         return filmConditionVo;
     }
-}
+
+
+    }
+
