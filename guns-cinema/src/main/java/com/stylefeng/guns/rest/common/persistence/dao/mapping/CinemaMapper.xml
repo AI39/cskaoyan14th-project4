@@ -105,4 +105,9 @@
         where mc.UUID = #{cinemaId}
     </select>
 
+    <select id="selectCinemaFilmFieldByFieldId" resultType="Integer">
+        select film_id
+        from mtime_field_t
+        where UUID = #{fid}
+    </select>
 </mapper>

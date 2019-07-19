@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.rest.common.persistence.dao.HallMapper">
+    <resultMap id="hallMapper" type="com.stylefeng.guns.rest.modular.cinema.vo.HallInfoVO">
+        <result column="hall_id" property="hallFieldId"/>
+        <result column="hall_name" property="hallName"/>
+        <result column="price" property="price"/>
+        <result column="seat_address" property="seatFile"/>
+    </resultMap>
+
+    <select id="selectHallInfoVOByFieldId"  resultMap="hallMapper">
+      select a.hall_id,a.hall_name,a.price,b.seat_address
+      from mtime_field_t a
+      LEFT join mtime_hall_dict_t b on a.hall_id = b.UUID
+      where a.UUID = #{fid}
+    </select>
+
+
+</mapper>
