@@ -1,7 +1,6 @@
 package com.stylefeng.guns.rest.modular.consumer.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-
 import com.stylefeng.guns.core.util.MD5Util;
 import com.stylefeng.guns.rest.modular.auth.util.JwtTokenUtil;
 import com.stylefeng.guns.rest.modular.consumer.service.ConsumerService;
@@ -10,18 +9,12 @@ import com.stylefeng.guns.rest.modular.consumer.vo.ErrorVo;
 import com.stylefeng.guns.rest.modular.consumer.vo.UserInfoModel;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 import redis.clients.jedis.Jedis;
-import java.util.HashMap;
-import java.util.Map;
-
-import com.stylefeng.guns.rest.modular.user.service.UserService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @RestController
