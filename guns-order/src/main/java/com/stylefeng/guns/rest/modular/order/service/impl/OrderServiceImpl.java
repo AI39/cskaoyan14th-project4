@@ -2,7 +2,7 @@ package com.stylefeng.guns.rest.modular.order.service.impl;
 
 import com.stylefeng.guns.rest.modular.order.service.OrderService;
 import com.alibaba.dubbo.config.annotation.Service;
-import com.stylefeng.guns.rest.modular.film.vo.OrderVO;
+import com.stylefeng.guns.rest.modular.order.vo.OrderVO;
 import org.springframework.stereotype.Component;
 
 

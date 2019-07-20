@@ -1,6 +1,7 @@
 package com.stylefeng.guns.rest.modular.order.service;
 
-import com.stylefeng.guns.rest.modular.film.vo.OrderVO;
+
+import com.stylefeng.guns.rest.modular.order.vo.OrderVO;
 
 public interface OrderService {
     //判断该场次是否有该座位
