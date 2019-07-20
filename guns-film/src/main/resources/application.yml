@@ -46,3 +46,10 @@ logging:
   level.com.stylefeng: debug
   path: logs/
   file: guns-rest.log
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params:
+  #params不配置会用默认的

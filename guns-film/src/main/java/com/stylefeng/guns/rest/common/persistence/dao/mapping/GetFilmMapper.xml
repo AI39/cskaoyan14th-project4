@@ -17,20 +17,24 @@
                 film_status = #{showType}
             </if>
             <if test="catId lt 99">
-
+            and
             film_cats = #{catId}
 
             </if>
             <if test="sourceId lt 99">
+            and
             film_source = #{sourceId}
 
             </if>
             <if test="yearId lt 99">
-
+            and
             film_date = #{yearId}
 
             </if>
-
+            <if test="kw != null">
+            and
+            film_name like concat('%',#{kw},'%')
+            </if>
 
         </where>
 
