@@ -12,4 +12,8 @@ public interface CinemaMapper {
 //    FieldListVoData selectFieldListVoDataByCinemaId(@Param("cinemaId") int cinemaId);
     CinemaInfo selectCinemaInfoByCinemaId(@Param("cinemaId") int cinemaId);
     List<CinemaFilm> selectCinemaFilmByCinemaId(@Param("cinemaId") int cinemaId);
+
+    Integer[] selectFilmIdByCinemaId(@Param("cid")Integer cinemaId);
+
+    Integer selectCinemaFilmFieldByFieldId(@Param("fid") Integer fieldId);
 }

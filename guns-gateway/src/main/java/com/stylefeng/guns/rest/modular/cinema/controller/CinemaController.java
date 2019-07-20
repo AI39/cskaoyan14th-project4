@@ -2,9 +2,7 @@ package com.stylefeng.guns.rest.modular.cinema.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.stylefeng.guns.rest.modular.cinema.service.CinemaService;
-import com.stylefeng.guns.rest.modular.cinema.vo.CinemaListVo;
-import com.stylefeng.guns.rest.modular.cinema.vo.FieldListVo;
-import com.stylefeng.guns.rest.modular.cinema.vo.FieldListVoData;
+import com.stylefeng.guns.rest.modular.cinema.vo.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,5 +34,19 @@ public class CinemaController {
         fieldListVo.setData(fieldListVoData);
         return fieldListVo;
         //异常情况暂未处理
+    }
+
+    @RequestMapping(value = "getCondition" ,method = RequestMethod.GET)
+    @ResponseBody
+    public ConditionVo getCondition(Integer brandId, Integer hallType, Integer areaId){
+        ConditionVo conditionVO = cinemaService.selectConditionByBrandIdAndHallTypeAndAreaId(brandId,hallType,areaId);
+        return conditionVO;
+    }
+
+    @RequestMapping(value = "getFieldInfo",method = RequestMethod.POST)
+    @ResponseBody
+    public FieldInfo getFieldInfo(Integer cinemaId,Integer fieldId){
+        FieldInfo fieldInfo = cinemaService.selectFieldByCinemaIdAndFieldId(cinemaId,fieldId);
+        return fieldInfo;
     }
 }

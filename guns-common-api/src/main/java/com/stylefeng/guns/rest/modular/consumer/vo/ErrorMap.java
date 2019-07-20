@@ -11,8 +11,9 @@ public class ErrorMap {
     //询问同学这里需要写静态方法，然后用一个map把这些塞进去，如果返回值需要data就塞data，如果需要msg，那个不是查询出来的就直接在方法里put。
     public static Map<Object, Object> getfile1(Object object){
         HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
-        objectObjectHashMap.put("data",object);
         objectObjectHashMap.put("status", 0);
+        objectObjectHashMap.put("data",object);
+
         return objectObjectHashMap;
     }
     public static Map<Object, Object> getfile2(int status, String msg){

@@ -95,20 +95,20 @@ public class ConsumerController {
     private JwtTokenUtil jwtTokenUtil;
     @PostMapping("/auth")
     @ResponseBody
-    public Object login(@Param("username") String username, @Param("password")String password){
+    public Object login(@Param("username") String userName, @Param("password")String password){
         Jedis jedis = new Jedis();
         try {
-            String pws = consumerService.queryPasswordByUserName(username);                                     //根据username查询password（MD5加密过的，在注册的时候加密）
+            String pws = consumerService.queryPasswordByUserName(userName);                                     //根据username查询password（MD5加密过的，在注册的时候加密）
             String encrypt = MD5Util.encrypt(password);                                                         //把从前端得到的密码加密
 
 
             String randomKey = jwtTokenUtil.getRandomKey();                                                     //根据jwt工具类得到randomkey
-            String token = jwtTokenUtil.generateToken(username, randomKey);                                     //然后得到token
+            String token = jwtTokenUtil.generateToken(userName, randomKey);                                     //然后得到token
             Map<String,Object> data = new HashMap<>();
             data.put("randomKey", randomKey);
             data.put("token", token);
             if (encrypt.equals(pws)){
-                jedis.set(username, token);                                                                     //如果账号密码匹配，就把token给jedis
+                jedis.set(userName, token);                                                                     //如果账号密码匹配，就把token给jedis
                 return ErrorMap.getfile1(data);
             }else{
                 return ErrorMap.getfile2(1, "用户名或密码错误");
