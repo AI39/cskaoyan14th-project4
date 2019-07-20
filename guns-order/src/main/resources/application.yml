@@ -27,15 +27,14 @@ mybatis-plus:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用
 
 spring:
-
   application: # 配置dubbo和zookeeper
     name: meeting-order
-    dubbo:
-      server: true
-      registry: zookeeper://localhost:2181
-      protocol:
-        name: dubbo
-        port: 20882
+  dubbo:
+    server: true
+    registry: zookeeper://localhost:2181
+    protocol:
+      name: dubbo
+      port: 20884
   datasource:
       url: jdbc:mysql://127.0.0.1:3306/project4?autoReconnect=true&useUnicode=true&characterEncoding=utf8
       username: root
