@@ -4,6 +4,7 @@ import com.stylefeng.guns.rest.common.persistence.dao.MtimeFieldTMapper;
 import com.stylefeng.guns.rest.common.persistence.dao.MtimeHallDictTMapper;
 import com.stylefeng.guns.rest.common.persistence.model.MtimeFieldT;
 import com.stylefeng.guns.rest.common.persistence.model.MtimeHallDictT;
+import com.stylefeng.guns.rest.common.persistence.dao.MoocOrderTMapper;
 import com.stylefeng.guns.rest.modular.order.service.OrderService;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.stylefeng.guns.rest.modular.order.util.MyJsonUtils;
@@ -13,11 +14,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 @Service(interfaceClass= OrderService.class)
 @Component
 public class OrderServiceImpl implements OrderService {
+    @Autowired
+    MoocOrderTMapper orderTMapper;
 
     @Autowired
     MtimeFieldTMapper fieldTMapper;
@@ -72,19 +77,32 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Boolean isSoldSeats(String fieldId, String seatId) {
-        /*int fieldid=Integer.valueOf(fieldId);
-        List<OrderVO> orderVOS = orderMapper.selectOrdersByFieldId(fieldid);
-        ArrayList<String> seatIds;
-        for(OrderVO items:orderVOS){
-
-
-        }*/
-
-        return null;
+        int fieldid=Integer.valueOf(fieldId);
+        List<String> seatsIds = orderTMapper.selectSeatsIdsByFieldId(fieldid);
+        ArrayList<String> seatsIdList=null;
+        for(String items:seatsIds){
+            String[] split = items.split(",");
+            for(int i=0;i<split.length;i++){
+                seatsIdList.add(split[i]);
+            }
+        }
+        boolean flag=false;
+        for(String items:seatsIdList){
+            if(items==seatId){
+                flag=true;
+                break;
+            }
+        }
+        return flag;
     }
 
     @Override
     public OrderVO saveOrderInfo(String fieldId, String soldSeats, String seatsName, Integer userId) {
+        OrderVO data = new OrderVO();
+        String s = UUID.randomUUID().toString();
+        String uuid = s.replace("-", "");
+        String UUID=uuid.substring(0,18);
+
         return null;
     }
 
@@ -92,6 +110,5 @@ public class OrderServiceImpl implements OrderService {
     public String getSoldSeatsByFieldId(Integer fieldId) {
         return null;
     }
-
 
 }

@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface CinemaMapper {
-    List<CinemaListVoData> selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(@Param("brandId") int brandId, @Param("hallType") int hallType, @Param("districtId") int districtId);
+    List<CinemaListVoData> selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(@Param("brandId") int brandId, @Param("hallType") int hallType, @Param("areaId") int areaId);
 //    FieldListVoData selectFieldListVoDataByCinemaId(@Param("cinemaId") int cinemaId);
     CinemaInfo selectCinemaInfoByCinemaId(@Param("cinemaId") int cinemaId);
     List<CinemaFilm> selectCinemaFilmByCinemaId(@Param("cinemaId") int cinemaId);

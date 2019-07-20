@@ -6,7 +6,7 @@ import com.stylefeng.guns.rest.modular.cinema.vo.FieldInfo;
 import com.stylefeng.guns.rest.modular.cinema.vo.FieldListVoData;
 
 public interface CinemaService {
-    CinemaListVo selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(Integer brandId, Integer hallType, Integer districtId, Integer pageSize, Integer nowPage);
+    CinemaListVo selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(Integer brandId, Integer hallType, Integer areaId, Integer pageSize, Integer nowPage);
     FieldListVoData selectFieldListVoDataByCinemaId(Integer cinemaId);
 
     ConditionVo selectConditionByBrandIdAndHallTypeAndAreaId(Integer brandId, Integer hallType, Integer areaId);

@@ -29,9 +29,9 @@ public class CinemaServiceImpl implements CinemaService {
     @Autowired(required = false)
     HallMapper hallMapper;
     @Override
-    public CinemaListVo selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(Integer brandId, Integer hallType, Integer districtId, Integer pageSize, Integer nowPage) {
+    public CinemaListVo selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(Integer brandId, Integer hallType, Integer areaId, Integer pageSize, Integer nowPage) {
         PageHelper.startPage(nowPage,pageSize);
-        List<CinemaListVoData> CinemaListVoDataList = cinemaMapper.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(brandId, hallType, districtId);
+        List<CinemaListVoData> CinemaListVoDataList = cinemaMapper.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(brandId, hallType, areaId);
         PageInfo<CinemaListVoData> pageInfo = new PageInfo<>(CinemaListVoDataList);
         CinemaListVo cinemaListVo = new CinemaListVo();
         cinemaListVo.setData(pageInfo.getList());
