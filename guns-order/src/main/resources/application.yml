@@ -2,6 +2,7 @@ rest:
   auth-open: false #jwt鉴权机制是否开启(true或者false)
   sign-open: false #签名机制是否开启(true或false)
 
+
 jwt:
   header: Authorization   #http请求头所需要的字段
   secret: mySecret        #jwt秘钥
@@ -27,6 +28,15 @@ mybatis-plus:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用
 
 spring:
+
+  application: # 配置dubbo和zookeeper
+    name: meeting-order
+    dubbo:
+      server: true
+      registry: zookeeper://localhost:2181
+      protocol:
+        name: dubbo
+        port: 20882
   datasource:
       url: jdbc:mysql://127.0.0.1:3306/project4?autoReconnect=true&useUnicode=true&characterEncoding=utf8
       username: root
