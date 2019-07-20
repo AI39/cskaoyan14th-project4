@@ -144,14 +144,14 @@
 2019-07-17 00:12:31.372  INFO 2136 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
 2019-07-17 00:12:36.276 ERROR 2136 --- [http-nio-8084-exec-1] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
-java.lang.RuntimeException: org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.stylefeng.guns.rest.common.persistence.dao.CinemaMapper.CinemaListVoDataListByBrandIdAndHallTypeAndDistrictId
-org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.stylefeng.guns.rest.common.persistence.dao.CinemaMapper.CinemaListVoDataListByBrandIdAndHallTypeAndDistrictId
+java.lang.RuntimeException: org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.stylefeng.guns.rest.common.persistence.dao.CinemaMapper.CinemaListVoDataListByBrandIdAndHallTypeAndAreaId
+org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.stylefeng.guns.rest.common.persistence.dao.CinemaMapper.CinemaListVoDataListByBrandIdAndHallTypeAndAreaId
 	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227)
 	at org.apache.ibatis.binding.MapperMethod.<init>(MapperMethod.java:49)
 	at org.apache.ibatis.binding.MapperProxy.cachedMapperMethod(MapperProxy.java:65)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:58)
-	at com.sun.proxy.$Proxy95.CinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(Unknown Source)
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:32)
+	at com.sun.proxy.$Proxy95.CinemaListVoDataListByBrandIdAndHallTypeAndAreaId(Unknown Source)
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:32)
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java)
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45)
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71)
@@ -353,7 +353,7 @@ org.apache.ibatis.binding.BindingException: Invalid bound statement (not found):
 2019-07-17 00:18:13.558  INFO 4912 --- [RMI TCP Connection(2)-192.168.1.95] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 13 ms
 2019-07-17 00:18:19.067 ERROR 4912 --- [http-nio-8084-exec-1] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
-com.alibaba.dubbo.rpc.RpcException: Failed to invoke the method selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId in the service com.stylefeng.guns.rest.modular.cinema.service.CinemaService. Tried 3 times of the providers [192.168.1.95:20881] (1/1) from the registry localhost:2181 on the consumer 192.168.1.95 using the dubbo version 2.6.0. Last error is: Failed to invoke remote method: selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId, provider: dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-gateway&check=false&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=4912&register.ip=192.168.1.95&remote.timestamp=1563293881916&side=consumer&timestamp=1563293891964, cause: Failed to send response: Response [id=3, version=2.0.0, status=20, event=false, error=null, result=RpcResult [result=CinemaListVo{status=0, nowPage=1, totalPage=1, data=Page{count=true, pageNum=1, pageSize=1, startRow=0, endRow=1, total=1, pages=1, reasonable=false, pageSizeZero=false}[CinemaListVoData{uuid=1, cinemaName='大地影院', address='北京市顺义区华联金街购物中心', minimumPrice=60}]}, exception=null]], cause: java.lang.IllegalStateException: Serialized class com.stylefeng.guns.rest.modular.cinema.vo.CinemaListVo must implement java.io.Serializable
+com.alibaba.dubbo.rpc.RpcException: Failed to invoke the method selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId in the service com.stylefeng.guns.rest.modular.cinema.service.CinemaService. Tried 3 times of the providers [192.168.1.95:20881] (1/1) from the registry localhost:2181 on the consumer 192.168.1.95 using the dubbo version 2.6.0. Last error is: Failed to invoke remote method: selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId, provider: dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-gateway&check=false&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=4912&register.ip=192.168.1.95&remote.timestamp=1563293881916&side=consumer&timestamp=1563293891964, cause: Failed to send response: Response [id=3, version=2.0.0, status=20, event=false, error=null, result=RpcResult [result=CinemaListVo{status=0, nowPage=1, totalPage=1, data=Page{count=true, pageNum=1, pageSize=1, startRow=0, endRow=1, total=1, pages=1, reasonable=false, pageSizeZero=false}[CinemaListVoData{uuid=1, cinemaName='大地影院', address='北京市顺义区华联金街购物中心', minimumPrice=60}]}, exception=null]], cause: java.lang.IllegalStateException: Serialized class com.stylefeng.guns.rest.modular.cinema.vo.CinemaListVo must implement java.io.Serializable
 java.lang.IllegalStateException: Serialized class com.stylefeng.guns.rest.modular.cinema.vo.CinemaListVo must implement java.io.Serializable
 	at com.alibaba.com.caucho.hessian.io.SerializerFactory.getDefaultSerializer(SerializerFactory.java:400)
 	at com.alibaba.com.caucho.hessian.io.SerializerFactory.getSerializer(SerializerFactory.java:374)
@@ -388,7 +388,7 @@ java.lang.IllegalStateException: Serialized class com.stylefeng.guns.rest.modula
 	at com.alibaba.dubbo.rpc.cluster.support.AbstractClusterInvoker.invoke(AbstractClusterInvoker.java:232) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.cluster.support.wrapper.MockClusterInvoker.invoke(MockClusterInvoker.java:70) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.InvokerInvocationHandler.invoke(InvokerInvocationHandler.java:51) ~[dubbo-2.6.0.jar:2.6.0]
-	at com.alibaba.dubbo.common.bytecode.proxy0.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(proxy0.java) ~[dubbo-2.6.0.jar:2.6.0]
+	at com.alibaba.dubbo.common.bytecode.proxy0.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(proxy0.java) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.stylefeng.guns.rest.modular.cinema.controller.CinemaController.getCinemas(CinemaController.java:25) ~[classes/:na]
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_111]
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_111]
@@ -612,7 +612,7 @@ java.lang.IllegalStateException: Serialized class com.stylefeng.guns.rest.modula
 2019-07-17 00:23:45.444  INFO 13744 --- [DubboZkclientConnector-SendThread(0:0:0:0:0:0:0:1:2181)] org.apache.zookeeper.ClientCnxn          : Client session timed out, have not heard from server in 15001ms for sessionid 0x0, closing socket connection and attempting reconnect
 2019-07-17 00:23:45.574  INFO 13744 --- [DubboZkclientConnector-SendThread(127.0.0.1:2181)] org.apache.zookeeper.ClientCnxn          : Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
 2019-07-17 00:23:45.576  INFO 13744 --- [DubboZkclientConnector-SendThread(127.0.0.1:2181)] org.apache.zookeeper.ClientCnxn          : Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
-2019-07-17 00:23:47.029  WARN 7148 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=7148&side=provider&timestamp=1563294196866 to registry localhost:2181, cause: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=7148&side=provider&timestamp=1563294196866 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=7148&timestamp=1563294196863, cause: Zookeeper is not connected yet!
+2019-07-17 00:23:47.029  WARN 7148 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=7148&side=provider&timestamp=1563294196866 to registry localhost:2181, cause: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=7148&side=provider&timestamp=1563294196866 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=7148&timestamp=1563294196863, cause: Zookeeper is not connected yet!
 2019-07-17 00:23:47.038  INFO 7148 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
 2019-07-17 00:23:47.043  INFO 7148 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
 2019-07-17 00:23:47.138  INFO 7148 --- [main] ConditionEvaluationReportLoggingListener : 
@@ -622,7 +622,7 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 2019-07-17 00:23:47.161  INFO 7148 --- [DubboZkclientConnector-SendThread(127.0.0.1:2181)] org.apache.zookeeper.ClientCnxn          : Client session timed out, have not heard from server in 15001ms for sessionid 0x0, closing socket connection and attempting reconnect
 2019-07-17 00:23:47.167 ERROR 7148 --- [main] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=7148&side=provider&timestamp=1563294196866 to registry localhost:2181, cause: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=7148&side=provider&timestamp=1563294196866 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=7148&timestamp=1563294196863, cause: Zookeeper is not connected yet!
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=7148&side=provider&timestamp=1563294196866 to registry localhost:2181, cause: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=7148&side=provider&timestamp=1563294196866 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=7148&timestamp=1563294196863, cause: Zookeeper is not connected yet!
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:138) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:422) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1694) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
@@ -642,7 +642,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255) [spring-boot-2.0.1.RELEASE.jar:2.0.1.RELEASE]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243) [spring-boot-2.0.1.RELEASE.jar:2.0.1.RELEASE]
 	at com.stylefeng.guns.rest.GunsCinemaApplication.main(GunsCinemaApplication.java:12) [classes/:na]
-Caused by: java.lang.IllegalStateException: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=7148&side=provider&timestamp=1563294196866 to registry localhost:2181, cause: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=7148&side=provider&timestamp=1563294196866 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=7148&timestamp=1563294196863, cause: Zookeeper is not connected yet!
+Caused by: java.lang.IllegalStateException: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=7148&side=provider&timestamp=1563294196866 to registry localhost:2181, cause: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=7148&side=provider&timestamp=1563294196866 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=7148&timestamp=1563294196863, cause: Zookeeper is not connected yet!
 	at com.alibaba.dubbo.registry.support.FailbackRegistry.register(FailbackRegistry.java:149) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.registry.integration.RegistryProtocol.register(RegistryProtocol.java:116) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.registry.integration.RegistryProtocol.export(RegistryProtocol.java:135) ~[dubbo-2.6.0.jar:2.6.0]
@@ -663,7 +663,7 @@ Caused by: java.lang.IllegalStateException: Failed to register dubbo://192.168.1
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:308) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:135) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	... 18 common frames omitted
-Caused by: com.alibaba.dubbo.rpc.RpcException: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=7148&side=provider&timestamp=1563294196866 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=7148&timestamp=1563294196863, cause: Zookeeper is not connected yet!
+Caused by: com.alibaba.dubbo.rpc.RpcException: Failed to register dubbo://192.168.1.95:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=7148&side=provider&timestamp=1563294196866 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=7148&timestamp=1563294196863, cause: Zookeeper is not connected yet!
 	at com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry.doRegister(ZookeeperRegistry.java:112) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.registry.support.FailbackRegistry.register(FailbackRegistry.java:136) ~[dubbo-2.6.0.jar:2.6.0]
 	... 36 common frames omitted
@@ -984,7 +984,7 @@ java.net.ConnectException: Connection refused: no further information
 2019-07-17 00:26:09.534 ERROR 17648 --- [http-nio-8084-exec-2] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -1018,7 +1018,7 @@ java.lang.NullPointerException: null
 2019-07-17 00:26:29.702 ERROR 17648 --- [http-nio-8084-exec-5] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -1054,7 +1054,7 @@ java.lang.ClassNotFoundException: com.stylefeng.guns.rest.common.persistence.mod
 2019-07-17 00:27:09.241 ERROR 17648 --- [http-nio-8084-exec-7] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -1088,7 +1088,7 @@ java.lang.NullPointerException: null
 2019-07-17 00:27:40.559 ERROR 17648 --- [http-nio-8084-exec-9] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -1122,7 +1122,7 @@ java.lang.NullPointerException: null
 2019-07-17 00:27:41.852 ERROR 17648 --- [http-nio-8084-exec-1] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -1156,7 +1156,7 @@ java.lang.NullPointerException: null
 2019-07-17 00:27:42.862 ERROR 17648 --- [http-nio-8084-exec-3] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -1190,7 +1190,7 @@ java.lang.NullPointerException: null
 2019-07-17 00:27:43.807 ERROR 17648 --- [http-nio-8084-exec-4] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -1224,7 +1224,7 @@ java.lang.NullPointerException: null
 2019-07-17 00:27:44.796 ERROR 17648 --- [http-nio-8084-exec-7] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -1258,7 +1258,7 @@ java.lang.NullPointerException: null
 2019-07-17 00:28:08.167 ERROR 17648 --- [http-nio-8084-exec-9] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -1436,7 +1436,7 @@ java.lang.NullPointerException: null
 2019-07-17 00:28:48.696 ERROR 9544 --- [http-nio-8084-exec-3] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -1522,7 +1522,7 @@ java.net.ConnectException: Connection refused: no further information
 2019-07-17 00:29:32.220 ERROR 9544 --- [http-nio-8084-exec-4] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -1700,7 +1700,7 @@ java.lang.NullPointerException: null
 2019-07-17 00:31:04.420 ERROR 12524 --- [http-nio-8084-exec-3] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -1882,7 +1882,7 @@ java.lang.ClassNotFoundException: com.stylefeng.guns.rest.common.persistence.mod
 2019-07-17 00:50:54.739 ERROR 17628 --- [http-nio-8084-exec-3] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -2060,7 +2060,7 @@ java.lang.NullPointerException: null
 2019-07-17 00:51:59.025 ERROR 11132 --- [http-nio-8084-exec-1] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -2094,7 +2094,7 @@ java.lang.NullPointerException: null
 2019-07-17 00:52:00.658 ERROR 11132 --- [http-nio-8084-exec-4] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -2186,7 +2186,7 @@ java.lang.NullPointerException: null
 2019-07-17 09:46:27.470  INFO 11832 --- [DubboZkclientConnector-SendThread(127.0.0.1:2181)] org.apache.zookeeper.ClientCnxn          : Client session timed out, have not heard from server in 15001ms for sessionid 0x0, closing socket connection and attempting reconnect
 2019-07-17 09:46:28.034  INFO 11832 --- [DubboZkclientConnector-SendThread(0:0:0:0:0:0:0:1:2181)] org.apache.zookeeper.ClientCnxn          : Opening socket connection to server 0:0:0:0:0:0:0:1/0:0:0:0:0:0:0:1:2181. Will not attempt to authenticate using SASL (unknown error)
 2019-07-17 09:46:28.035  INFO 11832 --- [DubboZkclientConnector-SendThread(0:0:0:0:0:0:0:1:2181)] org.apache.zookeeper.ClientCnxn          : Socket connection established to 0:0:0:0:0:0:0:1/0:0:0:0:0:0:0:1:2181, initiating session
-2019-07-17 09:46:42.466  WARN 11832 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=11832&side=provider&timestamp=1563327972296 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=11832&side=provider&timestamp=1563327972296 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=11832&timestamp=1563327972292, cause: Zookeeper is not connected yet!
+2019-07-17 09:46:42.466  WARN 11832 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=11832&side=provider&timestamp=1563327972296 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=11832&side=provider&timestamp=1563327972296 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=11832&timestamp=1563327972292, cause: Zookeeper is not connected yet!
 2019-07-17 09:46:42.468  INFO 11832 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
 2019-07-17 09:46:42.470  INFO 11832 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
 2019-07-17 09:46:42.481  INFO 11832 --- [main] ConditionEvaluationReportLoggingListener : 
@@ -2194,7 +2194,7 @@ java.lang.NullPointerException: null
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 2019-07-17 09:46:42.491 ERROR 11832 --- [main] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=11832&side=provider&timestamp=1563327972296 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=11832&side=provider&timestamp=1563327972296 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=11832&timestamp=1563327972292, cause: Zookeeper is not connected yet!
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=11832&side=provider&timestamp=1563327972296 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=11832&side=provider&timestamp=1563327972296 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=11832&timestamp=1563327972292, cause: Zookeeper is not connected yet!
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:138) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:422) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1694) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
@@ -2214,7 +2214,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255) [spring-boot-2.0.1.RELEASE.jar:2.0.1.RELEASE]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243) [spring-boot-2.0.1.RELEASE.jar:2.0.1.RELEASE]
 	at com.stylefeng.guns.rest.GunsCinemaApplication.main(GunsCinemaApplication.java:12) [classes/:na]
-Caused by: java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=11832&side=provider&timestamp=1563327972296 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=11832&side=provider&timestamp=1563327972296 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=11832&timestamp=1563327972292, cause: Zookeeper is not connected yet!
+Caused by: java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=11832&side=provider&timestamp=1563327972296 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=11832&side=provider&timestamp=1563327972296 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=11832&timestamp=1563327972292, cause: Zookeeper is not connected yet!
 	at com.alibaba.dubbo.registry.support.FailbackRegistry.register(FailbackRegistry.java:149) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.registry.integration.RegistryProtocol.register(RegistryProtocol.java:116) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.registry.integration.RegistryProtocol.export(RegistryProtocol.java:135) ~[dubbo-2.6.0.jar:2.6.0]
@@ -2235,7 +2235,7 @@ Caused by: java.lang.IllegalStateException: Failed to register dubbo://192.168.5
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:308) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:135) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	... 18 common frames omitted
-Caused by: com.alibaba.dubbo.rpc.RpcException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=11832&side=provider&timestamp=1563327972296 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=11832&timestamp=1563327972292, cause: Zookeeper is not connected yet!
+Caused by: com.alibaba.dubbo.rpc.RpcException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=11832&side=provider&timestamp=1563327972296 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=11832&timestamp=1563327972292, cause: Zookeeper is not connected yet!
 	at com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry.doRegister(ZookeeperRegistry.java:112) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.registry.support.FailbackRegistry.register(FailbackRegistry.java:136) ~[dubbo-2.6.0.jar:2.6.0]
 	... 36 common frames omitted
@@ -2330,7 +2330,7 @@ Caused by: java.lang.IllegalStateException: Zookeeper is not connected yet!
 2019-07-17 09:48:17.927  INFO 9924 --- [DubboZkclientConnector-SendThread(0:0:0:0:0:0:0:1:2181)] org.apache.zookeeper.ClientCnxn          : Client session timed out, have not heard from server in 15000ms for sessionid 0x0, closing socket connection and attempting reconnect
 2019-07-17 09:48:18.396  INFO 9924 --- [DubboZkclientConnector-SendThread(127.0.0.1:2181)] org.apache.zookeeper.ClientCnxn          : Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
 2019-07-17 09:48:18.396  INFO 9924 --- [DubboZkclientConnector-SendThread(127.0.0.1:2181)] org.apache.zookeeper.ClientCnxn          : Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
-2019-07-17 09:48:32.927  WARN 9924 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=9924&side=provider&timestamp=1563328082790 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=9924&side=provider&timestamp=1563328082790 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=9924&timestamp=1563328082787, cause: Zookeeper is not connected yet!
+2019-07-17 09:48:32.927  WARN 9924 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=9924&side=provider&timestamp=1563328082790 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=9924&side=provider&timestamp=1563328082790 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=9924&timestamp=1563328082787, cause: Zookeeper is not connected yet!
 2019-07-17 09:48:32.927  INFO 9924 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
 2019-07-17 09:48:32.927  INFO 9924 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
 2019-07-17 09:48:32.942  INFO 9924 --- [main] ConditionEvaluationReportLoggingListener : 
@@ -2338,7 +2338,7 @@ Caused by: java.lang.IllegalStateException: Zookeeper is not connected yet!
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 2019-07-17 09:48:32.942 ERROR 9924 --- [main] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=9924&side=provider&timestamp=1563328082790 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=9924&side=provider&timestamp=1563328082790 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=9924&timestamp=1563328082787, cause: Zookeeper is not connected yet!
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=9924&side=provider&timestamp=1563328082790 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=9924&side=provider&timestamp=1563328082790 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=9924&timestamp=1563328082787, cause: Zookeeper is not connected yet!
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:138) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:422) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1694) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
@@ -2358,7 +2358,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255) [spring-boot-2.0.1.RELEASE.jar:2.0.1.RELEASE]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243) [spring-boot-2.0.1.RELEASE.jar:2.0.1.RELEASE]
 	at com.stylefeng.guns.rest.GunsCinemaApplication.main(GunsCinemaApplication.java:12) [classes/:na]
-Caused by: java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=9924&side=provider&timestamp=1563328082790 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=9924&side=provider&timestamp=1563328082790 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=9924&timestamp=1563328082787, cause: Zookeeper is not connected yet!
+Caused by: java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=9924&side=provider&timestamp=1563328082790 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=9924&side=provider&timestamp=1563328082790 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=9924&timestamp=1563328082787, cause: Zookeeper is not connected yet!
 	at com.alibaba.dubbo.registry.support.FailbackRegistry.register(FailbackRegistry.java:149) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.registry.integration.RegistryProtocol.register(RegistryProtocol.java:116) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.registry.integration.RegistryProtocol.export(RegistryProtocol.java:135) ~[dubbo-2.6.0.jar:2.6.0]
@@ -2379,7 +2379,7 @@ Caused by: java.lang.IllegalStateException: Failed to register dubbo://192.168.5
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:308) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:135) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	... 18 common frames omitted
-Caused by: com.alibaba.dubbo.rpc.RpcException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=9924&side=provider&timestamp=1563328082790 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=9924&timestamp=1563328082787, cause: Zookeeper is not connected yet!
+Caused by: com.alibaba.dubbo.rpc.RpcException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=9924&side=provider&timestamp=1563328082790 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=9924&timestamp=1563328082787, cause: Zookeeper is not connected yet!
 	at com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry.doRegister(ZookeeperRegistry.java:112) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.registry.support.FailbackRegistry.register(FailbackRegistry.java:136) ~[dubbo-2.6.0.jar:2.6.0]
 	... 36 common frames omitted
@@ -2464,7 +2464,7 @@ Caused by: java.lang.IllegalStateException: Zookeeper is not connected yet!
 2019-07-17 09:49:29.259  INFO 13132 --- [DubboZkclientConnector-SendThread(0:0:0:0:0:0:0:1:2181)] org.apache.zookeeper.ClientCnxn          : Client session timed out, have not heard from server in 15001ms for sessionid 0x0, closing socket connection and attempting reconnect
 2019-07-17 09:49:30.237  INFO 13132 --- [DubboZkclientConnector-SendThread(127.0.0.1:2181)] org.apache.zookeeper.ClientCnxn          : Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
 2019-07-17 09:49:30.237  INFO 13132 --- [DubboZkclientConnector-SendThread(127.0.0.1:2181)] org.apache.zookeeper.ClientCnxn          : Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
-2019-07-17 09:49:44.260  WARN 13132 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=13132&side=provider&timestamp=1563328154106 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=13132&side=provider&timestamp=1563328154106 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=13132&timestamp=1563328154106, cause: Zookeeper is not connected yet!
+2019-07-17 09:49:44.260  WARN 13132 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=13132&side=provider&timestamp=1563328154106 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=13132&side=provider&timestamp=1563328154106 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=13132&timestamp=1563328154106, cause: Zookeeper is not connected yet!
 2019-07-17 09:49:44.276  INFO 13132 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
 2019-07-17 09:49:44.276  INFO 13132 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
 2019-07-17 09:49:44.291  INFO 13132 --- [main] ConditionEvaluationReportLoggingListener : 
@@ -2472,7 +2472,7 @@ Caused by: java.lang.IllegalStateException: Zookeeper is not connected yet!
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 2019-07-17 09:49:44.291 ERROR 13132 --- [main] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=13132&side=provider&timestamp=1563328154106 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=13132&side=provider&timestamp=1563328154106 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=13132&timestamp=1563328154106, cause: Zookeeper is not connected yet!
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.alibaba.dubbo.spring.boot.DubboProviderAutoConfiguration': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=13132&side=provider&timestamp=1563328154106 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=13132&side=provider&timestamp=1563328154106 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=13132&timestamp=1563328154106, cause: Zookeeper is not connected yet!
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:138) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:422) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1694) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
@@ -2492,7 +2492,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255) [spring-boot-2.0.1.RELEASE.jar:2.0.1.RELEASE]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243) [spring-boot-2.0.1.RELEASE.jar:2.0.1.RELEASE]
 	at com.stylefeng.guns.rest.GunsCinemaApplication.main(GunsCinemaApplication.java:12) [classes/:na]
-Caused by: java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=13132&side=provider&timestamp=1563328154106 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=13132&side=provider&timestamp=1563328154106 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=13132&timestamp=1563328154106, cause: Zookeeper is not connected yet!
+Caused by: java.lang.IllegalStateException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=13132&side=provider&timestamp=1563328154106 to registry localhost:2181, cause: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=13132&side=provider&timestamp=1563328154106 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=13132&timestamp=1563328154106, cause: Zookeeper is not connected yet!
 	at com.alibaba.dubbo.registry.support.FailbackRegistry.register(FailbackRegistry.java:149) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.registry.integration.RegistryProtocol.register(RegistryProtocol.java:116) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.registry.integration.RegistryProtocol.export(RegistryProtocol.java:135) ~[dubbo-2.6.0.jar:2.6.0]
@@ -2513,7 +2513,7 @@ Caused by: java.lang.IllegalStateException: Failed to register dubbo://192.168.5
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:308) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:135) ~[spring-beans-5.0.5.RELEASE.jar:5.0.5.RELEASE]
 	... 18 common frames omitted
-Caused by: com.alibaba.dubbo.rpc.RpcException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId,selectById&pid=13132&side=provider&timestamp=1563328154106 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=13132&timestamp=1563328154106, cause: Zookeeper is not connected yet!
+Caused by: com.alibaba.dubbo.rpc.RpcException: Failed to register dubbo://192.168.5.8:20881/com.stylefeng.guns.rest.modular.cinema.service.CinemaService?anyhost=true&application=meeting-cinema&dubbo=2.6.0&generic=false&interface=com.stylefeng.guns.rest.modular.cinema.service.CinemaService&methods=selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId,selectById&pid=13132&side=provider&timestamp=1563328154106 to zookeeper zookeeper://localhost:2181/com.alibaba.dubbo.registry.RegistryService?application=meeting-cinema&dubbo=2.6.0&interface=com.alibaba.dubbo.registry.RegistryService&pid=13132&timestamp=1563328154106, cause: Zookeeper is not connected yet!
 	at com.alibaba.dubbo.registry.zookeeper.ZookeeperRegistry.doRegister(ZookeeperRegistry.java:112) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.registry.support.FailbackRegistry.register(FailbackRegistry.java:136) ~[dubbo-2.6.0.jar:2.6.0]
 	... 36 common frames omitted
@@ -2730,7 +2730,7 @@ java.lang.ClassNotFoundException: com.stylefeng.guns.rest.common.persistence.mod
 2019-07-17 09:57:45.714 ERROR 6884 --- [http-nio-8084-exec-4] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -2837,7 +2837,7 @@ java.lang.NullPointerException: null
 2019-07-17 10:06:23.705 ERROR 14016 --- [http-nio-8084-exec-1] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -3024,7 +3024,7 @@ java.lang.ClassNotFoundException: com.stylefeng.guns.rest.common.persistence.mod
 2019-07-17 10:33:00.546 ERROR 2964 --- [http-nio-8084-exec-3] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -3202,7 +3202,7 @@ java.lang.NullPointerException: null
 2019-07-17 10:35:09.647 ERROR 17572 --- [http-nio-8084-exec-2] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -3236,7 +3236,7 @@ java.lang.NullPointerException: null
 2019-07-17 10:35:10.537 ERROR 17572 --- [http-nio-8084-exec-3] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -3270,7 +3270,7 @@ java.lang.NullPointerException: null
 2019-07-17 10:35:11.050 ERROR 17572 --- [http-nio-8084-exec-5] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -3304,7 +3304,7 @@ java.lang.NullPointerException: null
 2019-07-17 10:35:44.307 ERROR 17572 --- [http-nio-8084-exec-7] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -3338,7 +3338,7 @@ java.lang.NullPointerException: null
 2019-07-17 10:36:04.649 ERROR 17572 --- [http-nio-8084-exec-9] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -3516,7 +3516,7 @@ java.lang.NullPointerException: null
 2019-07-17 10:37:57.780 ERROR 8 --- [http-nio-8084-exec-1] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -3909,7 +3909,7 @@ java.lang.NullPointerException: null
 2019-07-17 10:55:10.778 ERROR 15088 --- [http-nio-8084-exec-1] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:31) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:31) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]
@@ -4158,7 +4158,7 @@ java.lang.NullPointerException: null
 2019-07-17 15:11:52.217 ERROR 7072 --- [http-nio-8084-exec-1] c.s.g.r.c.aop.GlobalExceptionHandler     : 运行时异常:
 
 java.lang.NullPointerException: null
-	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(CinemaServiceImpl.java:23) ~[na:na]
+	at com.stylefeng.guns.rest.modular.cinema.service.impl.CinemaServiceImpl.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(CinemaServiceImpl.java:23) ~[na:na]
 	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java) ~[na:na]
 	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:45) ~[dubbo-2.6.0.jar:2.6.0]
 	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:71) ~[dubbo-2.6.0.jar:2.6.0]

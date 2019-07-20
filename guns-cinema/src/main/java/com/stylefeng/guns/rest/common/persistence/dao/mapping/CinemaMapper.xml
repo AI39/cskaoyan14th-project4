@@ -9,16 +9,16 @@
         <result column="cinema_address" property="address"/>
         <result column="minimum_price" property="minimumPrice"/>
     </resultMap>
-    <select id="selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId" resultMap="CinemaListVoDataMapper">
+    <select id="selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId" resultMap="CinemaListVoDataMapper">
         select UUID, cinema_name, cinema_address, minimum_price
         from mtime_cinema_t
         <where>
             <if test="brandId lt 99">
                 brand_id = #{brandId}
             </if>
-            <if test="districtId lt 99">
+            <if test="areaId lt 99">
                 and
-                area_id = #{districtId}
+                area_id = #{areaId}
             </if>
             <if test="hallType lt 99">
                 and

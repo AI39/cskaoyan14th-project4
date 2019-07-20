@@ -16,8 +16,8 @@ public class CinemaController {
 
     @RequestMapping(value = "getCinemas")
     @ResponseBody
-    public CinemaListVo getCinemas(Integer brandId, Integer hallType, Integer districtId, Integer pageSize, Integer nowPage) {
-        CinemaListVo cinemaListVo = cinemaService.selectCinemaListVoDataListByBrandIdAndHallTypeAndDistrictId(brandId, hallType, districtId, pageSize, nowPage);
+    public CinemaListVo getCinemas(Integer brandId, Integer hallType, Integer areaId, Integer pageSize, Integer nowPage) {
+        CinemaListVo cinemaListVo = cinemaService.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(brandId, hallType, areaId, pageSize, nowPage);
         cinemaListVo.setStatus(0);
         return cinemaListVo;
         //异常情况暂未处理
