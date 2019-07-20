@@ -19,6 +19,7 @@
     </parent>
 
     <dependencies>
+
         <!--dubbo-->
         <dependency>
             <groupId>com.alibaba.spring.boot</groupId>
@@ -55,7 +56,6 @@
             <groupId>com.stylefeng</groupId>
             <artifactId>guns-core</artifactId>
         </dependency>
-
         <!--分页-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
@@ -74,7 +74,10 @@
             <groupId>com.stylefeng</groupId>
             <artifactId>guns-common-api</artifactId>
             <version>1.0.0</version>
+            <scope>compile</scope>
         </dependency>
+
+
 
     </dependencies>
 

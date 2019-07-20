@@ -70,6 +70,10 @@ public class EntityGenerator {
         pc.setService("com.stylefeng.guns.rest.modular.product.service");       //本项目没用，生成之后删掉
         pc.setServiceImpl("com.stylefeng.guns.rest.modular.product.service.impl");   //本项目没用，生成之后删掉
         pc.setController("com.stylefeng.guns.rest.modular.product.controller");    //本项目没用，生成之后删掉
+        pc.setService("com.stylefeng.guns.rest.modular.product.service");       //本项目没用，生成之后删掉
+        pc.setServiceImpl("com.stylefeng.guns.rest.modular.product.service.impl");   //本项目没用，生成之后删掉
+        pc.setController("com.stylefeng.guns.rest.modular.product.controller");    //本项目没用，生成之后删掉
+
         mpg.setPackageInfo(pc);
 
         // 注入自定义配置，可以在 VM 中使用 cfg.abc 设置的值
