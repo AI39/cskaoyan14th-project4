@@ -16,4 +16,6 @@ public interface CinemaMapper {
     Integer[] selectFilmIdByCinemaId(@Param("cid")Integer cinemaId);
 
     Integer selectCinemaFilmFieldByFieldId(@Param("fid") Integer fieldId);
+
+    List<String> selectSeatsIdsByFieldId(@Param("fieldId") Integer fieldId);
 }
