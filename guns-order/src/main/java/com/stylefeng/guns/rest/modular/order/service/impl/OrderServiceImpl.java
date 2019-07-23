@@ -138,8 +138,9 @@ public class OrderServiceImpl implements OrderService {
         moocOrderT.setOrderUser(userId);
         moocOrderT.setOrderStatus(0);
         orderTMapper.insert(moocOrderT);
-        MtimeFilmT mtimeFilmT = filmTMapper.selectById(fieldId);
-        return null;
+
+        OrderVO orderVO = getOrderByOrderId(moocOrderT.getUuid());
+        return orderVO;
     }
 
     private OrderVO getOrderByOrderId(String orderId) {
