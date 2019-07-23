@@ -9,7 +9,10 @@ import com.stylefeng.guns.rest.modular.cinema.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service(interfaceClass = com.stylefeng.guns.rest.modular.cinema.service.CinemaService.class)
 @Component
@@ -73,7 +76,29 @@ public class CinemaServiceImpl implements CinemaService {
         Integer filmId = cinemaMapper.selectCinemaFilmFieldByFieldId(fieldId);
         FilmInfoVO filmInfoVO = filmMapper.selectFilmInfoVOByFilmId(filmId);
         HallInfoVO hallInfoVO = hallMapper.selectHallInfoVOByFieldId(fieldId);
-        hallInfoVO.setSoldSeats("1,2,3,5,12");
+
+        Set<String> allSoldSeatsSet = new HashSet();
+        List<String> soldSeatsList = cinemaMapper.selectSeatsIdsByFieldId(fieldId);
+        System.out.println(soldSeatsList);
+        String str = "";
+        if (soldSeatsList != null && soldSeatsList.size() != 0) {
+            for (String s : soldSeatsList) {
+                String[] soldSeatsArray = s.split(",");
+                Set<String> soldSeatsSet = new HashSet(Arrays.asList(soldSeatsArray));
+                allSoldSeatsSet.addAll(soldSeatsSet);
+            }
+            StringBuffer stringBuffer = new StringBuffer();
+            for (String s : allSoldSeatsSet) {
+                stringBuffer.append(s).append(",");
+            }
+            str = stringBuffer.toString();
+            str = str.substring(0, str.length()-1);
+        }
+        else {
+            str = "";
+        }
+        hallInfoVO.setSoldSeats(str);
+
         CinemaInfo cinemaInfo = cinemaMapper.selectCinemaInfoByCinemaId(cinemaId);
         FieldInfoData fieldInfoData = new FieldInfoData(filmInfoVO,cinemaInfo,hallInfoVO);
         FieldInfo fieldInfo = new FieldInfo(0,"http://img.meetingshop.cn/",fieldInfoData);

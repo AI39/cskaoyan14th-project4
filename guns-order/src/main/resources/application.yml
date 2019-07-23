@@ -39,7 +39,7 @@ spring:
       url: jdbc:mysql://127.0.0.1:3306/project4?autoReconnect=true&useUnicode=true&characterEncoding=utf8
       username: root
       password: 123456
-      filters: slf4j,wall,mergeStat
+      filters: log4j,wall,mergeStat
 
 logging:
   level.root: info
