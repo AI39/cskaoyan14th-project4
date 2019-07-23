@@ -8,6 +8,11 @@ import com.stylefeng.guns.rest.common.persistence.dao.OrderVOMapper;
 import com.stylefeng.guns.rest.common.persistence.model.MtimeFieldT;
 import com.stylefeng.guns.rest.common.persistence.model.MtimeHallDictT;
 import com.stylefeng.guns.rest.common.persistence.dao.MoocOrderTMapper;
+import com.stylefeng.guns.rest.common.persistence.dao.MtimeFieldTMapper;
+import com.stylefeng.guns.rest.common.persistence.dao.MtimeFilmTMapper;
+import com.stylefeng.guns.rest.common.persistence.model.MoocOrderT;
+import com.stylefeng.guns.rest.common.persistence.model.MtimeFieldT;
+import com.stylefeng.guns.rest.common.persistence.model.MtimeFilmT;
 import com.stylefeng.guns.rest.modular.order.service.OrderService;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.stylefeng.guns.rest.modular.order.util.MyJsonUtils;
@@ -20,6 +25,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,6 +34,8 @@ import java.util.UUID;
 public class OrderServiceImpl implements OrderService {
     @Autowired
     MoocOrderTMapper orderTMapper;
+    @Autowired
+    MtimeFilmTMapper filmTMapper;
     @Autowired
     MtimeFieldTMapper fieldTMapper;
     @Autowired
@@ -111,8 +119,26 @@ public class OrderServiceImpl implements OrderService {
         OrderVO data = new OrderVO();
         String s = UUID.randomUUID().toString();
         String uuid = s.replace("-", "");
-        String UUID=uuid.substring(0,18);
-
+        String code=uuid.substring(0,18);
+        MtimeFieldT mtimeFieldT = fieldTMapper.selectById(fieldId);
+        Integer filmId = mtimeFieldT.getFilmId();
+        Integer price = mtimeFieldT.getPrice();
+        Integer cinemaId = mtimeFieldT.getCinemaId();
+        MoocOrderT moocOrderT = new MoocOrderT();
+        moocOrderT.setUuid(code);
+        moocOrderT.setCinemaId(cinemaId);
+        moocOrderT.setFieldId(Integer.valueOf(fieldId));
+        moocOrderT.setFilmId(filmId);
+        moocOrderT.setSeatsIds(soldSeats);
+        moocOrderT.setSeatsName(seatsName);
+        String[] split = soldSeats.split(",");
+        moocOrderT.setFilmPrice(price*1.0);
+        moocOrderT.setOrderPrice(price*split.length*1.0);
+        moocOrderT.setOrderTime(new Date());
+        moocOrderT.setOrderUser(userId);
+        moocOrderT.setOrderStatus(0);
+        orderTMapper.insert(moocOrderT);
+        MtimeFilmT mtimeFilmT = filmTMapper.selectById(fieldId);
         return null;
     }
 

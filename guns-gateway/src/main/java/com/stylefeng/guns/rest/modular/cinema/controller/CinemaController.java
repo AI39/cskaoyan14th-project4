@@ -17,15 +17,17 @@ public class CinemaController {
     @RequestMapping(value = "getCinemas")
     @ResponseBody
     public CinemaListVo getCinemas(Integer brandId, Integer hallType, Integer areaId, Integer pageSize, Integer nowPage) {
+        //这个人很懒，数据校验暂未处理
         CinemaListVo cinemaListVo = cinemaService.selectCinemaListVoDataListByBrandIdAndHallTypeAndAreaId(brandId, hallType, areaId, pageSize, nowPage);
         cinemaListVo.setStatus(0);
         return cinemaListVo;
-        //异常情况暂未处理
+        //这个人很懒，异常情况暂未处理
     }
 
     @RequestMapping(value = "getFields", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public FieldListVo getFieldsgetFields(Integer cinemaId) {
+        //这个人很懒，数据校验暂未处理
         FieldListVoData fieldListVoData = cinemaService.selectFieldListVoDataByCinemaId(cinemaId);
 
         FieldListVo fieldListVo = new FieldListVo();
@@ -33,7 +35,7 @@ public class CinemaController {
         fieldListVo.setImgPre("http://img.meetingshop.cn/");
         fieldListVo.setData(fieldListVoData);
         return fieldListVo;
-        //异常情况暂未处理
+        //这个人很懒，异常情况暂未处理
     }
 
     @RequestMapping(value = "getCondition" ,method = RequestMethod.GET)

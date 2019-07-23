@@ -110,4 +110,12 @@
         from mtime_field_t
         where UUID = #{fid}
     </select>
+
+    <select id="selectSeatsIdsByFieldId" resultType="string">
+        select seats_ids
+        from
+        mooc_order_t
+        where
+        field_id = #{fieldId}
+    </select>
 </mapper>
