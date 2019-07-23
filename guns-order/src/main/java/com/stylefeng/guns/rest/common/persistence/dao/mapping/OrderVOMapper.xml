@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.rest.common.persistence.dao.OrderVOMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.rest.modular.order.vo.OrderVO">
+        <result column="UUID" property="orderId" />
+        <result column="film_name" property="filmName" />
+        <result column="field_time" property="fieldTime" />
+        <result column="cinema_name" property="cinemaName" />
+        <result column="seats_name" property="seatsName" />
+        <result column="order_price" property="orderPrice" />
+        <result column="order_time" property="orderTimestamp" typeHandler="com.stylefeng.guns.rest.common.persistence.dao.handler.Long2DateTypeHandler"/>
+        <result column="order_status" property="orderStatus" />
+    </resultMap>
+
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        SELECT
+            t1.UUID,
+            t2.film_name,
+            concat(
+                DATE_FORMAT( t1.order_time, '%y' ),
+                '年',
+                DATE_FORMAT( t1.order_time, '%m' ),
+                '月',
+                DATE_FORMAT( t1.order_time, '%d' ),
+                '日',
+                ' ',
+                t3.begin_time
+            ) AS field_time,
+            t4.cinema_name,
+            t1.seats_name,
+            t1.order_price,
+            t1.order_time,
+            ( CASE t1.order_status WHEN 0 THEN '待支付' WHEN 1 THEN '已支付' WHEN 2 THEN '已关闭' END ) AS order_status
+        FROM
+            (
+            SELECT
+                UUID,
+                film_id,
+                order_time,
+                cinema_id,
+                seats_name,
+                order_price,
+                order_status,
+                field_id,
+                order_user
+            FROM
+                mooc_order_t UNION ALL
+            SELECT
+                UUID,
+                film_id,
+                order_time,
+                cinema_id,
+                seats_name,
+                order_price,
+                order_status,
+                field_id,
+                order_user
+            FROM
+                mooc_order_2017_t UNION ALL
+            SELECT
+                UUID,
+                film_id,
+                order_time,
+                cinema_id,
+                seats_name,
+                order_price,
+                order_status,
+                field_id,
+                order_user
+            FROM
+                mooc_order_2018_t
+            ) t1
+            LEFT JOIN mtime_film_t t2 ON t1.film_id = t2.UUID
+            LEFT JOIN mtime_field_t t3 ON t1.field_id = t3.UUID
+            LEFT JOIN mtime_cinema_t t4 ON t1.cinema_id = t4.UUID
+        WHERE
+            t1.order_user = #{userId}
+        order by t1.order_time desc
+    </select>
+
+    <select id="selectByUserId2017" resultMap="BaseResultMap">
+        SELECT
+            t1.UUID,
+            t2.film_name,
+            concat(
+                DATE_FORMAT( t1.order_time, '%y' ),
+                '年',
+                DATE_FORMAT( t1.order_time, '%m' ),
+                '月',
+                DATE_FORMAT( t1.order_time, '%d' ),
+                '日',
+                ' ',
+                t3.begin_time
+            ) AS field_time,
+            t4.cinema_name,
+            t1.seats_name,
+            t1.order_price,
+            t1.order_time,
+        	( CASE t1.order_status WHEN 0 THEN '待支付' WHEN 1 THEN '已支付' WHEN 2 THEN '已关闭' END ) AS order_status
+        FROM
+            mooc_order_2017_t t1
+            LEFT JOIN mtime_film_t t2 ON t1.film_id = t2.UUID
+            LEFT JOIN mtime_field_t t3 ON t1.field_id = t3.UUID
+            LEFT JOIN mtime_cinema_t t4 ON t1.cinema_id = t4.UUID
+        WHERE
+            t1.order_user = #{userId}
+    </select>
+
+    <select id="selectByUserId2018" resultMap="BaseResultMap">
+        SELECT
+            t1.UUID,
+            t2.film_name,
+            concat(
+                DATE_FORMAT( t1.order_time, '%y' ),
+                '年',
+                DATE_FORMAT( t1.order_time, '%m' ),
+                '月',
+                DATE_FORMAT( t1.order_time, '%d' ),
+                '日',
+                ' ',
+                t3.begin_time
+            ) AS field_time,
+            t4.cinema_name,
+            t1.seats_name,
+            t1.order_price,
+            t1.order_time,
+        	( CASE t1.order_status WHEN 0 THEN '待支付' WHEN 1 THEN '已支付' WHEN 2 THEN '已关闭' END ) AS order_status
+        FROM
+            mooc_order_2018_t t1
+            LEFT JOIN mtime_film_t t2 ON t1.film_id = t2.UUID
+            LEFT JOIN mtime_field_t t3 ON t1.field_id = t3.UUID
+            LEFT JOIN mtime_cinema_t t4 ON t1.cinema_id = t4.UUID
+        WHERE
+            t1.order_user = #{userId}
+    </select>
+
+    <select id="selectByOrderId" resultMap="BaseResultMap">
+        SELECT
+            t1.UUID,
+            t2.film_name,
+            concat(
+                DATE_FORMAT( t1.order_time, '%y' ),
+                '年',
+                DATE_FORMAT( t1.order_time, '%m' ),
+                '月',
+                DATE_FORMAT( t1.order_time, '%d' ),
+                '日',
+                ' ',
+                t3.begin_time
+            ) AS field_time,
+            t4.cinema_name,
+            t1.seats_name,
+            t1.order_price,
+            t1.order_time,
+        	( CASE t1.order_status WHEN 0 THEN '待支付' WHEN 1 THEN '已支付' WHEN 2 THEN '已关闭' END ) AS order_status
+        FROM
+            mooc_order_t t1
+            LEFT JOIN mtime_film_t t2 ON t1.film_id = t2.UUID
+            LEFT JOIN mtime_field_t t3 ON t1.field_id = t3.UUID
+            LEFT JOIN mtime_cinema_t t4 ON t1.cinema_id = t4.UUID
+        WHERE
+            t1.UUID = #{orderId}
+    </select>
+
+</mapper>

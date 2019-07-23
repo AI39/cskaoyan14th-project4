@@ -17,7 +17,7 @@
         <result column="order_status" property="orderStatus" />
     </resultMap>
 
-    <select id="selectSeatsIdsByFieldId" resultMap="string">
+    <select id="selectSeatsIdsByFieldId" resultType="string">
         select seats_ids from mooc_order_t where field_id=#{fieldid}
     </select>
 
